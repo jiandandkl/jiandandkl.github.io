@@ -10,6 +10,8 @@
     
     <title>
         
+            redis中sscan的使用.md | 
+        
         dujun blog
     </title>
 
@@ -30,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,redis">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -56,9 +58,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://jiandandkl.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="dujun blog">
+    <meta property="og:title" content="redis中sscan的使用.md | dujun blog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="redis"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -207,302 +209,284 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-        <!-- Paradox Header -->
-        
-        
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
 
-    <!-- Normal Post -->
-    
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-  <!-- Post Thumbnail -->
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
   
     
       <!-- Random Thumbnail -->
       <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
-      
-      
-
-        <!-- Post Title -->
-        <p class="article-headline-p">
-          <a href="/2018/09/17/redis中sscan的使用-md/">
-            redis中sscan的使用.md</a>
-        </p>
-      </div>
-
-      <!-- Post Excerpt -->
-      <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-          
-这周使用smembers获取了一个成员量接近2万的集合,实力坑了自己公司的服务,所以写这篇总结下
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-          <a href="/2018/09/17/redis中sscan的使用-md/" target="_self">阅读全文</a>
-        </span>
-      </div>
-      <!-- Post_entry Info-->
-      <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-          <!-- Author Avatar -->
-          <div id="author-avatar">
-            <img src="https://avatars1.githubusercontent.com/u/119213?v=4" width="44px" height="44px" alt="dujun's avatar">
-          </div>
-          <div>
-            <strong>
-              <a href="https://github.com/dujun">dujun</a>
-            </strong>
-            <span>9月 17, 2018</span>
-          </div>
-        </div>
-        <div id="post_entry-right-info">
-          <!-- Category -->
-          <span class="post_entry-category">
-            
-          </span>
-
-          
-
-          
-
-          <!-- Post Views -->
-          <span class="post_entry-views"></span>
-        </div>
-      </div>
-    </div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-  <!-- Post Thumbnail -->
-  
-    
-      <!-- Random Thumbnail -->
-      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
-      
-      
-
-        <!-- Post Title -->
-        <p class="article-headline-p">
-          <a href="/2018/06/06/wx-getUserInfo废弃之后-弹窗获取信息/">
-            wx-getUserInfo废弃之后-弹窗获取信息</a>
-        </p>
-      </div>
-
-      <!-- Post Excerpt -->
-      <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-          
-先吐槽下微信,这么基础的API晚上11点说废就废,程序猿何苦为难程序猿.(不过最近好像又恢复了…)
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-          <a href="/2018/06/06/wx-getUserInfo废弃之后-弹窗获取信息/" target="_self">阅读全文</a>
-        </span>
-      </div>
-      <!-- Post_entry Info-->
-      <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-          <!-- Author Avatar -->
-          <div id="author-avatar">
-            <img src="https://avatars1.githubusercontent.com/u/16009933?s=40&amp;v=4" width="44px" height="44px" alt="dujun's avatar">
-          </div>
-          <div>
-            <strong>
-              <a href="https://github.com/jiandandkl">dujun</a>
-            </strong>
-            <span>6月 06, 2018</span>
-          </div>
-        </div>
-        <div id="post_entry-right-info">
-          <!-- Category -->
-          <span class="post_entry-category">
-            
-          </span>
-
-          
-
-          
-
-          <!-- Post Views -->
-          <span class="post_entry-views"></span>
-        </div>
-      </div>
-    </div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-  <!-- Post Thumbnail -->
-  
-    
-      <!-- Random Thumbnail -->
-      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
-      
-      
-
-        <!-- Post Title -->
-        <p class="article-headline-p">
-          <a href="/2018/06/06/面对有2亿条数据的mysql表/">
-            面对有2亿条数据的mysql表</a>
-        </p>
-      </div>
-
-      <!-- Post Excerpt -->
-      <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-          
-看到这个2亿5千条数据的表，我的内心是拒绝的，各种条件筛选要取出相应的数据，被折磨了两天，现在记录下心路历程
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-          <a href="/2018/06/06/面对有2亿条数据的mysql表/" target="_self">阅读全文</a>
-        </span>
-      </div>
-      <!-- Post_entry Info-->
-      <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-          <!-- Author Avatar -->
-          <div id="author-avatar">
-            <img src="https://avatars1.githubusercontent.com/u/16009933?s=40&amp;v=4" width="44px" height="44px" alt="dujun's avatar">
-          </div>
-          <div>
-            <strong>
-              <a href="https://github.com/jiandandkl">dujun</a>
-            </strong>
-            <span>6月 06, 2018</span>
-          </div>
-        </div>
-        <div id="post_entry-right-info">
-          <!-- Category -->
-          <span class="post_entry-category">
-            
-          </span>
-
-          
-
-          
-
-          <!-- Post Views -->
-          <span class="post_entry-views"></span>
-        </div>
-      </div>
-    </div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-  <!-- Post Thumbnail -->
-  
-    
-      <!-- Random Thumbnail -->
-      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
-      
-      
-
-        <!-- Post Title -->
-        <p class="article-headline-p">
-          <a href="/2018/06/06/使用微信JS-SDK自定义分享内容/">
-            使用微信JS-SDK自定义分享内容</a>
-        </p>
-      </div>
-
-      <!-- Post Excerpt -->
-      <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-          调用微信SDK自定义分享内容
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-          <a href="/2018/06/06/使用微信JS-SDK自定义分享内容/" target="_self">阅读全文</a>
-        </span>
-      </div>
-      <!-- Post_entry Info-->
-      <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-          <!-- Author Avatar -->
-          <div id="author-avatar">
-            <img src="https://avatars1.githubusercontent.com/u/16009933?s=40&amp;v=4" width="44px" height="44px" alt="dujun's avatar">
-          </div>
-          <div>
-            <strong>
-              <a href="https://github.com/jiandandkl">dujun</a>
-            </strong>
-            <span>6月 06, 2018</span>
-          </div>
-        </div>
-        <div id="post_entry-right-info">
-          <!-- Category -->
-          <span class="post_entry-category">
-            
-          </span>
-
-          
-
-          
-
-          <!-- Post Views -->
-          <span class="post_entry-views"></span>
-        </div>
-      </div>
-    </div>
-
-            
-            
-        
-    
-
-    
-
-    
         <script>
-  var randomNum;
+  var randomNum = Math.floor(Math.random() * 19 + 1);
 
-  var locatePost = $('.locate-thumbnail-symbol').next();
-  for (var i = 0; i < 10; i++) {
-    randomNum = Math.floor(Math.random() * 19 + 1);
-
-    locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-' + randomNum);
-    if (!locatePost.children('.post_thumbnail-random').attr('data-original')) {
-      locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    }
-    $('.post_thumbnail-random').addClass('lazy');
-
-    locatePost = locatePost.next();
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
   }
+  $('.post_thumbnail-random').addClass('lazy');
 </script>
+
+      
+      
+        <p class="article-headline-p">
+          redis中sscan的使用.md
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars1.githubusercontent.com/u/119213?v=4" width="44px" height="44px" alt="Author Avatar"/>
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/dujun">dujun</a>
+    </strong>
+    <span>9月 17, 2018</span>
+  </div>
+
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+  <!-- Qrcode -->
+  
+    <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+      <i class="material-icons" role="presentation">devices other</i>
+      <span class="visuallyhidden">devices other</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+      <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC2ElEQVR42u3aQXaDMAwFQO5/6fYALcmXRFqwh1Ue8LBHi6qSfHxteR3Y2NjY2NjY2NjYt2Qf8fXLh1pv/rz/8/fZncmesbGxsddmv/nTf7KhN8sE4cjXfR2gaM/Y2NjYG7DPNnr2zmRzSUrLV3z9DjY2Njb2JwqGeWGDjY2NjT1n5+FIEtvka9jY2NjY1eZOUjDkq1QbUv/QS8PGxsa+PTsfmt7n95/Ot7GxsbFvzJ4MX/OyoZqKktKivHNsbGzsRdl5YqgWGNeGabJPbGxs7H3YPUChGIiTWa/V9SYpYmNjYy/KnjT9q4OE+TGgpFwpNJWwsbGxF2JXGXmp0AtKwshTGjY2NvYO7ORITf5OklqSEPTeLOdtbGxs7Iezq4d18n/982FAHvp8SBz10rCxsbGXYFfLjEI7fjDQvTYdYmNjY6/NriaYvOl/7fA4eYqNjY2NXW3rlxd+mermQ4Xm4UtsbGzsJdhXjWl7Lf55OTTqpWFjY2M/nD0ZoFaLkGTr1YHBZb00bGxs7MeyJwvn4auWH3liy9fFxsbGXpWdN+uryak3VEjevKCphI2Njb0Qu9ri740W5sXM5Ck2Njb2nuzqoDcfD+QlRP602VTCxsbGXo6dbLHaipof7umlWGxsbOw92b2klbDzIM7bT6O8jY2Njf1w9rxJVA3cpOmf7BYbGxt7H3aSEvKCJA9Nb8BcDSI2Njb2zuz8UE4+EugdCao2mLCxsbF3Zs+bPkm7pzoSOIpXuRTBxsbGfiy7euUhyAuPaqB7KRAbGxt7VXYvJfTKjN53esm1eVIJGxsb+7HsSdLKt1V9mt8fjQewsbGxF2LnByt7SS4Z9/baSaMEho2Njb0xOy9p8mFtEo7qSAMbGxsbu5rMJoOByeDh46UINjY29u3Z+XbzDeWp7tpwYGNjY+/G7jVu8qBUS5Re6+qD821sbGzsG7P3ubCxsbGxsbGxsbFvc30DYgRJSwpZgjYAAAAASUVORK5CYII=">
+    </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+      <i class="material-icons" role="presentation">bookmark</i>
+      <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+      <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/redis/">redis</a>
+    </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <blockquote>
+<p>这周使用smembers获取了一个成员量接近2万的集合,实力坑了自己公司的服务,所以写这篇总结下</p>
+</blockquote>
+<p>redis非常快,官方提供的数据是可以达到100000+的QPS（每秒内查询次数）,是单进程单线程,适合高并发单次数据量小的情况,操作一些大数据量的时候会有性能问题,如keys/smembers/hgetall。</p>
+<p>那既然smembers不能用了,要获取某个集合的所有成员怎么办?redis2.8版本增加了scan命令,及相关的sscan/hscan/zscan。</p>
+<pre class=" language-bash"><code class="language-bash">sadd person jack rose lilei lee
+sscan person 0
+1<span class="token punctuation">)</span> 0
+2<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> jack
+   2<span class="token punctuation">)</span> rose
+   3<span class="token punctuation">)</span> lilei
+   4<span class="token punctuation">)</span> lee
+</code></pre>
+<ul>
+<li>cursor选项(必填)<br>游标,从0开始,每次操作后会返回一个新的游标,下次操作已新游标作为游标参数</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">sscan mykey 0
+0<span class="token punctuation">)</span> 423
+1<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> aaa
+   2<span class="token punctuation">)</span> bbb
+   3<span class="token punctuation">)</span> ddd
+   <span class="token punctuation">..</span>.
+sscan mykey 423
+0<span class="token punctuation">)</span> 334
+1<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> fff
+   2<span class="token punctuation">)</span> ee
+   3<span class="token punctuation">)</span> gg
+   <span class="token punctuation">..</span>.
+</code></pre>
+<ul>
+<li>match选项(选填)<br>匹配相应的元素</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">sscan person 0 match l*
+1<span class="token punctuation">)</span> 0
+2<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> lilei
+   2<span class="token punctuation">)</span> lee
+</code></pre>
+<ul>
+<li>count选项(选填, 默认值为10)<br>这个就比较奇怪了,有两种情况:<ol>
+<li>集合内元素较少,redis会忽略count值,返回所有的元素</li>
+<li>集合内元素较多,设定count后返回等于或大于count值的元素</li>
+</ol>
+</li>
+</ul>
+
+    
 
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2018/09/17/redis中sscan的使用-md/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2018/09/17/redis中sscan的使用-md/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/06/06/wx-getUserInfo废弃之后-弹窗获取信息/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -796,12 +780,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
 
 
 <!-- Window Load-->

@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
     <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="keywords" content="null,小程序">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -60,7 +60,7 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="wx-getUserInfo废弃之后-弹窗获取信息 | dujun blog">
     <meta property="og:description" content="null">
-    
+    <meta property="og:article:tag" content="小程序"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -328,7 +328,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
       <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/小程序/">小程序</a>
     </ul>
   
 
@@ -402,6 +402,55 @@ icon<span class="token punctuation">:</span> <span class="token string">'../../i
 duration<span class="token punctuation">:</span> <span class="token number">3000</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
+<p>效果图:</p>
+<p><img src="/img/dujun/loading.gif" alt=""></p>
+<blockquote>
+<p>推荐个loading图网站 <a href="https://loading.io/" target="_blank" rel="noopener">https://loading.io</a></p>
+</blockquote>
+</li>
+<li><p>登录模态框</p>
+<p>有自定义模态框在实现登录就比较简单了,在wxml绑定两个按钮就可以了</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>text wx<span class="token punctuation">:</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"{{showToast.title}}"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"toast-title"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>showToast<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>text<span class="token operator">></span>
+<span class="token operator">&lt;</span>view wx<span class="token punctuation">:</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"{{showToast.btnCancel &amp;&amp; showToast.btnUserInfo}}"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>text <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">'toast-text'</span><span class="token operator">></span>请先登录<span class="token operator">~</span><span class="token operator">&lt;</span><span class="token operator">/</span>text<span class="token operator">></span>
+<span class="token operator">&lt;</span>button <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">'toast-btn'</span> catchtap<span class="token operator">=</span><span class="token string">'click_cancel'</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>showToast<span class="token punctuation">.</span>btnCancel<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token operator">&lt;</span>button <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">'toast-btn toast-btn2'</span> open<span class="token operator">-</span>type<span class="token operator">=</span><span class="token string">"getUserInfo"</span> bindgetuserinfo<span class="token operator">=</span><span class="token string">"click_user_info"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>showToast<span class="token punctuation">.</span>btnUserInfo<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>view<span class="token operator">></span>
+</code></pre>
+<p>my.js:</p>
+<pre class=" language-javascript"><code class="language-javascript">feedbackApi<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+title<span class="token punctuation">:</span> <span class="token string">'尚未登录'</span><span class="token punctuation">,</span>
+btnCancel<span class="token punctuation">:</span> <span class="token string">'知道了'</span><span class="token punctuation">,</span>
+btnUserInfo<span class="token punctuation">:</span> <span class="token string">'登录'</span><span class="token punctuation">,</span>
+bg<span class="token punctuation">:</span> <span class="token string">'#fff'</span><span class="token punctuation">,</span>
+duration<span class="token punctuation">:</span> <span class="token number">10000</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// 点击取消</span>
+<span class="token function">click_cancel</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+feedbackApi<span class="token punctuation">.</span><span class="token function">hideToast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+wx<span class="token punctuation">.</span><span class="token function">switchTab</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> <span class="token string">'../index/index'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// 点击登录</span>
+<span class="token function">click_user_info</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> e<span class="token punctuation">.</span>detail
+<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>userInfo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    userInfo<span class="token punctuation">:</span> data<span class="token punctuation">.</span>userInfo
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  wx<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">'userInfo'</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>userInfo<span class="token punctuation">)</span>
+  feedbackApi<span class="token punctuation">.</span><span class="token function">hideToast</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  wx<span class="token punctuation">.</span><span class="token function">switchTab</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    url<span class="token punctuation">:</span> <span class="token string">'../index/index'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>效果图:</p>
+<p><img src="/img/dujun/login.gif" alt=""></p>
+<p>详细代码可见 <a href="https://github.com/jiandandkl/toast-demo" target="_blank" rel="noopener">https://github.com/jiandandkl/toast-demo</a></p>
 </li>
 </ul>
 
@@ -456,6 +505,14 @@ duration<span class="token punctuation">:</span> <span class="token number">3000
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2018/09/17/redis中sscan的使用-md/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
@@ -563,7 +620,7 @@ duration<span class="token punctuation">:</span> <span class="token number">3000
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
