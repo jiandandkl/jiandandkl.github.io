@@ -10,7 +10,7 @@
     
     <title>
         
-            redis中sscan的使用.md | 
+            sequelize-typescript联表查询 | 
         
         dujun blog
     </title>
@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
     <meta name="description" content="null">
-    <meta name="keywords" content="null,redis">
+    <meta name="keywords" content="null">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -58,9 +58,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://jiandandkl.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="redis中sscan的使用.md | dujun blog">
+    <meta property="og:title" content="sequelize-typescript联表查询 | dujun blog">
     <meta property="og:description" content="null">
-    <meta property="og:article:tag" content="redis"> 
+    
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -235,7 +235,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API"><span class="post-toc-number">1.</span> <span class="post-toc-text">API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ForeignKey"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">@ForeignKey</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BelongsTo"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">@BelongsTo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HasOne-hasMany-BelongsToMany"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">@HasOne / @hasMany / @BelongsToMany</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见问题</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -274,7 +274,7 @@
       
       
         <p class="article-headline-p">
-          redis中sscan的使用.md
+          sequelize-typescript联表查询
         </p>
       </div>
     
@@ -288,14 +288,14 @@
 
   <!-- Author Avatar -->
   <div id="author-avatar">
-    <img src="https://avatars1.githubusercontent.com/u/16009933?v=3" width="44px" height="44px" alt="Author Avatar"/>
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar"/>
   </div>
   <!-- Author Name & Date -->
   <div>
     <strong>
-      <a href="https://github.com/jiandandkl">dujun</a>
+      <a href="https://github.com/jiandandkl">jiandandkl</a>
     </strong>
-    <span>9月 17, 2018</span>
+    <span>1月 04, 2019</span>
   </div>
 
   <div class="section-spacer"></div>
@@ -316,7 +316,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
       <li class="mdl-menu__item">在其它设备中阅读本文章</li>
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC2ElEQVR42u3aQXaDMAwFQO5/6fYALcmXRFqwh1Ue8LBHi6qSfHxteR3Y2NjY2NjY2NjYt2Qf8fXLh1pv/rz/8/fZncmesbGxsddmv/nTf7KhN8sE4cjXfR2gaM/Y2NjYG7DPNnr2zmRzSUrLV3z9DjY2Njb2JwqGeWGDjY2NjT1n5+FIEtvka9jY2NjY1eZOUjDkq1QbUv/QS8PGxsa+PTsfmt7n95/Ot7GxsbFvzJ4MX/OyoZqKktKivHNsbGzsRdl5YqgWGNeGabJPbGxs7H3YPUChGIiTWa/V9SYpYmNjYy/KnjT9q4OE+TGgpFwpNJWwsbGxF2JXGXmp0AtKwshTGjY2NvYO7ORITf5OklqSEPTeLOdtbGxs7Iezq4d18n/982FAHvp8SBz10rCxsbGXYFfLjEI7fjDQvTYdYmNjY6/NriaYvOl/7fA4eYqNjY2NXW3rlxd+mermQ4Xm4UtsbGzsJdhXjWl7Lf55OTTqpWFjY2M/nD0ZoFaLkGTr1YHBZb00bGxs7MeyJwvn4auWH3liy9fFxsbGXpWdN+uryak3VEjevKCphI2Njb0Qu9ri740W5sXM5Ck2Njb2nuzqoDcfD+QlRP602VTCxsbGXo6dbLHaipof7umlWGxsbOw92b2klbDzIM7bT6O8jY2Njf1w9rxJVA3cpOmf7BYbGxt7H3aSEvKCJA9Nb8BcDSI2Njb2zuz8UE4+EugdCao2mLCxsbF3Zs+bPkm7pzoSOIpXuRTBxsbGfiy7euUhyAuPaqB7KRAbGxt7VXYvJfTKjN53esm1eVIJGxsb+7HsSdLKt1V9mt8fjQewsbGxF2LnByt7SS4Z9/baSaMEho2Njb0xOy9p8mFtEo7qSAMbGxsbu5rMJoOByeDh46UINjY29u3Z+XbzDeWp7tpwYGNjY+/G7jVu8qBUS5Re6+qD821sbGzsG7P3ubCxsbGxsbGxsbFvc30DYgRJSwpZgjYAAAAASUVORK5CYII=">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC20lEQVR42u3aQW7CUAwEUO5/6XZbCQFjO1Tg/7JCKAr/ZVHXHt9+jrxu2NjY2NjY2NjY2B/JvsXX3/urn++fc3+G+/uTb5IzY2NjY5/AfvGnP7hncujkBT16rfmZsbGxsU9gJ0Ur+oEH3/R+Kymi0XOwsbGxsYv3FMY9cdnDxsbGxr6K/ZyXtwo5BhsbGxv7qqFSeSgfjIeS9mM+CMPGxsbezX530PuOz1+Qb2NjY2P/C7t6PS82vYKU3zM6OTY2NvZSdnUhMgllk/HTvHUpt0DY2NjYS9mTQpUPoSZ3Vkvjw+dgY2NjL2VXG4l8jXLSYOShbx4bYGNjY29l5+FrHs2+o52Yj66wsbGxt7KrwWreBlSfUF3ZLL96bGxs7NXsecOQhwqTGGASD2NjY2NvZfcGOpPVyXysnwywCqEFNjY29lJ2dZyUh8HlAnNpI4SNjY19Drv6k0ncmwyDqkVoEkVjY2Njn8nOW458OJUPkq5aJ8LGxsY+hz1vTnpLPMnLnZdPbGxs7N3sfDRTLTD5YCgaCY0HWNjY2Nhb2fMmYbJ2c23DM4oHsLGxsb+WXVh5KbYlSXm7qplJ8NjY2Nhb2clVPXp+oEnEmwcD2NjY2Ceznz8oL3J5acybk3wcho2NjX0C+9oly/y418bDLxobbGxs7KXs6j/0eUybxwOTxqZZwLCxsbEXsXuhbxIDzBd0ejEwNjY29snsSZPQG+XPly8LBRUbGxt7KTtfrOktVuaxQS9CyF8iNjY29lZ29cqbhHzkNAlx84YEGxsbeyu7Vxjy4pRHDvMI+cXzsbGxsVezJ4HBfKw/L2DJy8XGxsY+gV1tM5IGo/orvYAhGnJhY2NjYxfH+nkknK/jTKJobGxsbOykUclLXW/AlBTIt7Qi2NjY2F/CzodKeXuQD/errzt5AjY2NvY57F7QmxSS8opkayDVbEWwsbGxV7DPubCxsbGxsbGxsbE/5voFjufilXC5vC4AAAAASUVORK5CYII=">
     </ul>
   
 
@@ -328,7 +328,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
       <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/redis/">redis</a>
+        
     </ul>
   
 
@@ -372,49 +372,76 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <blockquote>
-<p>这周使用smembers获取了一个成员量接近2万的集合,实力坑了自己公司的服务,所以写这篇总结下</p>
+<p>使用sequelize-typescript的联表查询遇到点问题,文档不太清晰,对着那几个api: <code>ForeignKey</code>,<code>BelongsTo</code>,<code>HasOne</code>一个个调用尝试,想着以后有空写个清晰简单的文章,帮助其他同学节约点时间。(拖了两个月,组内有其他同学也遇到这个问题,立了flag赶紧补上)</p>
 </blockquote>
-<p>redis非常快,官方提供的数据是可以达到100000+的QPS（每秒内查询次数）,是单进程单线程,适合高并发单次数据量小的情况,操作一些大数据量的时候会有性能问题,如keys/smembers/hgetall。</p>
-<p>那既然smembers不能用了,要获取某个集合的所有成员怎么办?redis2.8版本增加了scan命令,及相关的sscan/hscan/zscan。</p>
-<pre class=" language-bash"><code class="language-bash">sadd person jack rose lilei lee
-sscan person 0
-1<span class="token punctuation">)</span> 0
-2<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> jack
-   2<span class="token punctuation">)</span> rose
-   3<span class="token punctuation">)</span> lilei
-   4<span class="token punctuation">)</span> lee
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h5 id="ForeignKey"><a href="#ForeignKey" class="headerlink" title="@ForeignKey"></a>@ForeignKey</h5><p>这个还是比较明显的,需要外联的key,用在源模型中。<br>参数是目标模型。</p>
+<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">ForeignKey</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span>
 </code></pre>
-<ul>
-<li>cursor选项(必填)<br>游标,从0开始,每次操作后会返回一个新的游标,下次操作已新游标作为游标参数</li>
-</ul>
-<pre class=" language-bash"><code class="language-bash">sscan mykey 0
-0<span class="token punctuation">)</span> 423
-1<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> aaa
-   2<span class="token punctuation">)</span> bbb
-   3<span class="token punctuation">)</span> ddd
-   <span class="token punctuation">..</span>.
-sscan mykey 423
-0<span class="token punctuation">)</span> 334
-1<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> fff
-   2<span class="token punctuation">)</span> ee
-   3<span class="token punctuation">)</span> gg
-   <span class="token punctuation">..</span>.
+<h5 id="BelongsTo"><a href="#BelongsTo" class="headerlink" title="@BelongsTo"></a>@BelongsTo</h5><p>创建源模型到目标模型的关系。<br>可以传1到2个参数,第一个参数是目标模型,第二个参数是源模型的外联key,第二个参数也可以传一个对象,如:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 只传目标模型,默认外联key为源模型的主键</span>
+@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 传入teamId作为源模型的外联key,默认目标模型对应的外联key为目标模型的主键</span>
+@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token string">'teamName'</span><span class="token punctuation">)</span>
 </code></pre>
-<ul>
-<li>match选项(选填)<br>匹配相应的元素</li>
-</ul>
-<pre class=" language-bash"><code class="language-bash">sscan person 0 match l*
-1<span class="token punctuation">)</span> 0
-2<span class="token punctuation">)</span> 1<span class="token punctuation">)</span> lilei
-   2<span class="token punctuation">)</span> lee
+<h5 id="HasOne-hasMany-BelongsToMany"><a href="#HasOne-hasMany-BelongsToMany" class="headerlink" title="@HasOne / @hasMany / @BelongsToMany"></a>@HasOne / @hasMany / @BelongsToMany</h5><p>不太好用就不介绍了-_-</p>
+<blockquote>
+<p>又研究了下发现@ForeignKey可以不使用,改为放在@BelongsTo里,见如下示例</p>
+</blockquote>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><p>player.ts</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Player<span class="token operator">></span> <span class="token punctuation">{</span>
+  @Column
+  teamName<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+
+  @Column
+  gameName<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+
+  @Column
+  teamId<span class="token punctuation">:</span> number<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 传入targetKey指定目标模型的外联key</span>
+  @<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token punctuation">{</span> foreignKey<span class="token punctuation">:</span> <span class="token string">'teamName'</span><span class="token punctuation">,</span> targetKey<span class="token punctuation">:</span> <span class="token string">'tname'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  team<span class="token punctuation">:</span> Team<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 关联其他模型</span>
+  @<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Game<span class="token punctuation">,</span> <span class="token punctuation">{</span> foreignKey<span class="token punctuation">:</span> <span class="token string">'gameName'</span><span class="token punctuation">,</span> targetKey<span class="token punctuation">:</span> <span class="token string">'gname'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  game<span class="token punctuation">:</span> Game<span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">findData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      include<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        model<span class="token punctuation">:</span> Team<span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 获取目标模型某些key</span>
+        attributes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      raw<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<ul>
-<li>count选项(选填, 默认值为10)<br>这个就比较奇怪了,有两种情况:<ol>
-<li>集合内元素较少,redis会忽略count值,返回所有的元素</li>
-<li>集合内元素较多,设定count后返回等于或大于count值的元素</li>
-</ol>
-</li>
-</ul>
+<p>team.ts</p>
+<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tableName<span class="token punctuation">:</span> <span class="token string">'team'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Team</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Team<span class="token operator">></span> <span class="token punctuation">{</span>
+  @Column
+  tname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>game.ts</p>
+<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  tableName<span class="token punctuation">:</span> <span class="token string">'game'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Game</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Game<span class="token operator">></span> <span class="token punctuation">{</span>
+  @Column
+  gname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><pre><code>Error: Game is not associated to Player 
+</code></pre><p>处理: 目标模型没有与源模型相关联,是<code>@BelongsTo</code>下缺少<code>team: Team</code></p>
+<pre><code>Error: Foreign key for &quot;Game&quot; is missing on &quot;Player&quot;
+</code></pre><p>处理: 缺少foreignKey,可以在源模型的key上添加<code>@ForeignKey</code>,或者在<code>@BelongsTo</code>第二个参数里添加foreignKey对象</p>
 
     
 
@@ -436,8 +463,8 @@ sscan mykey 423
         <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://jiandandkl.github.io/2018/09/17/redis中sscan的使用-md/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://jiandandkl.github.io/2018/09/17/redis中sscan的使用-md/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://jiandandkl.github.io/2019/01/04/sequelize-typescript联表查询/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2019/01/04/sequelize-typescript联表查询/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     queue.offer(function() {
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -468,21 +495,13 @@ sscan mykey 423
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/09/30/《图解HTTP》读书笔记/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/06/06/wx-getUserInfo废弃之后-弹窗获取信息/" id="post_nav-older" class="next-content">
+        <a href="/2018/09/30/《图解HTTP》读书笔记/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
