@@ -381,12 +381,14 @@
 <h3 id="缓存模式"><a href="#缓存模式" class="headerlink" title="缓存模式"></a>缓存模式</h3><h4 id="Cache-Aside模式"><a href="#Cache-Aside模式" class="headerlink" title="Cache Aside模式"></a>Cache Aside模式</h4><ul>
 <li>同时更新数据库和缓存</li>
 </ul>
+<p>具体实现:</p>
 <ul>
 <li>命中: 从缓存中取数据,成功后返回数据</li>
 <li>更新: 更新数据库,成功后使缓存失效</li>
 <li>失效: 从换从中取数据,失败则从数据库取数据,并放入缓存</li>
 </ul>
-<p>存在的问题: 两个并发操作,一个读操作,没有命中缓存就到数据库中读取数据;另一个写操作,更新数据库,使缓存失效,之前的读操作会把读到的老数据放入缓存。</p>
+<p>存在的问题:</p>
+<p>两个并发操作,一个读操作,没有命中缓存就到数据库中读取数据;另一个写操作,更新数据库,使缓存失效,之前的读操作会把读到的老数据放入缓存。</p>
 <p>当然以上也是概率比较低的情况,写操作会比读操作慢的多,而读操作要早于写操作前进入数据库操作,又要晚于写操作更新缓存。</p>
 <h4 id="Read-Write-Through模式"><a href="#Read-Write-Through模式" class="headerlink" title="Read/Write Through模式"></a>Read/Write Through模式</h4><ul>
 <li>先更新缓存,缓存同步更新数据库</li>
