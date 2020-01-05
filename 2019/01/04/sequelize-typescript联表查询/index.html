@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head><meta name="generator" content="Hexo 3.9.0">
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
@@ -31,8 +31,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
-    <meta name="description" content="null">
-    <meta name="keywords" content="null">
+    <meta name="description" content>
+    <meta name="keywords" content>
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -59,7 +59,7 @@
     <meta property="og:url" content="https://jiandandkl.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="sequelize-typescript联表查询 | dujun blog">
-    <meta property="og:description" content="null">
+    <meta property="og:description" content>
     
 
     <!--[if lte IE 9]>
@@ -229,12 +229,13 @@
     -->
 
     <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API"><span class="post-toc-number">1.</span> <span class="post-toc-text">API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ForeignKey"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">@ForeignKey</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BelongsTo"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">@BelongsTo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HasOne-hasMany-BelongsToMany"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">@HasOne / @hasMany / @BelongsToMany</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见问题</span></a></li>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API"><span class="post-toc-number">1.</span> <span class="post-toc-text">API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ForeignKey"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">@ForeignKey</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BelongsTo"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">@BelongsTo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HasOne-hasMany-BelongsToMany"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">@HasOne / @hasMany / @BelongsToMany</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见问题</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -260,7 +261,7 @@
   
     
       <!-- Random Thumbnail -->
-      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original>
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
         <script>
   var randomNum = Math.floor(Math.random() * 19 + 1);
 
@@ -287,7 +288,7 @@
 
   <!-- Author Avatar -->
   <div id="author-avatar">
-    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar">
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
   </div>
   <!-- Author Name & Date -->
   <div>
@@ -333,7 +334,7 @@
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
     <li class="mdl-menu__item">
       
-  </li></ul>
+  </ul>
   
 
   <!-- Share -->
@@ -378,15 +379,13 @@
 <p>使用sequelize-typescript的联表查询遇到点问题,文档不太清晰,对着那几个api: <code>ForeignKey</code>,<code>BelongsTo</code>,<code>HasOne</code>一个个调用尝试,想着以后有空写个清晰简单的文章,帮助其他同学节约点时间。(拖了两个月,组内有其他同学也遇到这个问题,立了flag赶紧补上)</p>
 </blockquote>
 <h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h5 id="ForeignKey"><a href="#ForeignKey" class="headerlink" title="@ForeignKey"></a>@ForeignKey</h5><p>这个还是比较明显的,需要外联的key,用在源模型中。<br>参数是目标模型。</p>
-<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">ForeignKey</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span>
-</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">ForeignKey</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span></code></pre>
 <h5 id="BelongsTo"><a href="#BelongsTo" class="headerlink" title="@BelongsTo"></a>@BelongsTo</h5><p>创建源模型到目标模型的关系。<br>可以传1到2个参数,第一个参数是目标模型,第二个参数是源模型的外联key,第二个参数也可以传一个对象,如:</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 只传目标模型,需要指定源模型的@ForeignKey</span>
 @<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// 传入teamName作为源模型的外联key,默认目标模型对应的外联key为目标模型的主键</span>
-@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token string">'teamName'</span><span class="token punctuation">)</span>
-</code></pre>
+@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token string">'teamName'</span><span class="token punctuation">)</span></code></pre>
 <h5 id="HasOne-hasMany-BelongsToMany"><a href="#HasOne-hasMany-BelongsToMany" class="headerlink" title="@HasOne / @hasMany / @BelongsToMany"></a>@HasOne / @hasMany / @BelongsToMany</h5><p>不太好用就不介绍了-_-</p>
 <blockquote>
 <p>又研究了下发现@ForeignKey可以不使用,改为放在@BelongsTo里,见如下示例</p>
@@ -419,8 +418,7 @@
       raw<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>team.ts</p>
 <pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   tableName<span class="token punctuation">:</span> <span class="token string">'team'</span>
@@ -429,8 +427,7 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Team</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Team<span class="token operator">></span> <span class="token punctuation">{</span>
   @Column
   tname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>game.ts</p>
 <pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   tableName<span class="token punctuation">:</span> <span class="token string">'game'</span>
@@ -439,12 +436,9 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Game</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Game<span class="token operator">></span> <span class="token punctuation">{</span>
   @Column
   gname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><pre><code>Error: Game is not associated to Player 
-</code></pre><p>处理: 目标模型没有与源模型相关联,是<code>@BelongsTo</code>下缺少<code>team: Team</code></p>
-<pre><code>Error: Foreign key for &quot;Game&quot; is missing on &quot;Player&quot;
-</code></pre><p>处理: 缺少foreignKey,可以在源模型的key上添加<code>@ForeignKey</code>,或者在<code>@BelongsTo</code>第二个参数里添加foreignKey对象</p>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><pre><code>Error: Game is not associated to Player </code></pre><p>处理: 目标模型没有与源模型相关联,是<code>@BelongsTo</code>下缺少<code>team: Team</code></p>
+<pre><code>Error: Foreign key for &quot;Game&quot; is missing on &quot;Player&quot;</code></pre><p>处理: 缺少foreignKey,可以在源模型的key上添加<code>@ForeignKey</code>,或者在<code>@BelongsTo</code>第二个参数里添加foreignKey对象</p>
 
     
 
@@ -540,7 +534,8 @@
   <div class="top-bar"></div>
 
   <!-- Sidebar toggle button -->
-  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
     <i class="material-icons">clear_all</i>
     <span class="mdl-button__ripple-container">
       <span class="mdl-ripple"></span>
@@ -611,8 +606,8 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
         </li>
         
     
@@ -646,7 +641,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>
@@ -766,7 +761,8 @@ It will not impact the appearance and can give developers a lot of support :)
   <div class="mdl-mini-footer--right-section">
     <div>
       <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
     </div>
   </div>
   

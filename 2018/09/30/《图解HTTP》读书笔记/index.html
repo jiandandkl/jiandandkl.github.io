@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head><meta name="generator" content="Hexo 3.9.0">
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
@@ -31,8 +31,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
-    <meta name="description" content="null">
-    <meta name="keywords" content="null,http">
+    <meta name="description" content>
+    <meta name="keywords" content=",http">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -59,7 +59,7 @@
     <meta property="og:url" content="https://jiandandkl.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="《图解HTTP》读书笔记 | dujun blog">
-    <meta property="og:description" content="null">
+    <meta property="og:description" content>
     <meta property="og:article:tag" content="http"> 
 
     <!--[if lte IE 9]>
@@ -229,12 +229,13 @@
     -->
 
     <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、TCP-IP协议"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、TCP/IP协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通信过程"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">通信过程</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#IP-TCP-DNS"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">IP / TCP / DNS</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、HTTP协议"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、HTTP协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP支持的方法"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">HTTP支持的方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#持久连接"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">持久连接</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#管线化"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">管线化</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、HTTP报文内的HTTP信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、HTTP报文内的HTTP信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#报文主体与实体主体"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">报文主体与实体主体</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#获取部分内容的范围请求"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">获取部分内容的范围请求</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、HTTP状态码"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、HTTP状态码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常见状态码"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">常见状态码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、与HTTP协作的web服务器"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、与HTTP协作的web服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通信数据转发程序-代理、网关、隧道"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">通信数据转发程序:代理、网关、隧道</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、HTTP首部"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、HTTP首部</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP请求报文"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">HTTP请求报文</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP响应报文"><span class="post-toc-number">6.0.2.</span> <span class="post-toc-text">HTTP响应报文</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP首部字段"><span class="post-toc-number">6.0.3.</span> <span class="post-toc-text">HTTP首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP-1-1-通用首部字段"><span class="post-toc-number">6.0.4.</span> <span class="post-toc-text">HTTP/1.1 通用首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求首部字段"><span class="post-toc-number">6.0.5.</span> <span class="post-toc-text">请求首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#响应首部字段"><span class="post-toc-number">6.0.6.</span> <span class="post-toc-text">响应首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#实体首部字段"><span class="post-toc-number">6.0.7.</span> <span class="post-toc-text">实体首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#其他首部字段"><span class="post-toc-number">6.0.8.</span> <span class="post-toc-text">其他首部字段</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七、确保Web安全的HTTPS"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、确保Web安全的HTTPS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTPS的安全通信机制"><span class="post-toc-number">7.0.1.</span> <span class="post-toc-text">HTTPS的安全通信机制</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#八、确认访问用户身份的认证"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、确认访问用户身份的认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#九、基于HTTP的功能追加协议"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、基于HTTP的功能追加协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#全双工通信的WebSocket"><span class="post-toc-number">9.0.1.</span> <span class="post-toc-text">全双工通信的WebSocket</span></a></li></ol></li>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、TCP-IP协议"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、TCP/IP协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通信过程"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">通信过程</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#IP-TCP-DNS"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">IP / TCP / DNS</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、HTTP协议"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、HTTP协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP支持的方法"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">HTTP支持的方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#持久连接"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">持久连接</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#管线化"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">管线化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、HTTP报文内的HTTP信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、HTTP报文内的HTTP信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#报文主体与实体主体"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">报文主体与实体主体</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#获取部分内容的范围请求"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">获取部分内容的范围请求</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、HTTP状态码"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、HTTP状态码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常见状态码"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">常见状态码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、与HTTP协作的web服务器"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、与HTTP协作的web服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#通信数据转发程序-代理、网关、隧道"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">通信数据转发程序:代理、网关、隧道</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、HTTP首部"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、HTTP首部</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP请求报文"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">HTTP请求报文</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP响应报文"><span class="post-toc-number">6.0.2.</span> <span class="post-toc-text">HTTP响应报文</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP首部字段"><span class="post-toc-number">6.0.3.</span> <span class="post-toc-text">HTTP首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP-1-1-通用首部字段"><span class="post-toc-number">6.0.4.</span> <span class="post-toc-text">HTTP/1.1 通用首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#请求首部字段"><span class="post-toc-number">6.0.5.</span> <span class="post-toc-text">请求首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#响应首部字段"><span class="post-toc-number">6.0.6.</span> <span class="post-toc-text">响应首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#实体首部字段"><span class="post-toc-number">6.0.7.</span> <span class="post-toc-text">实体首部字段</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#其他首部字段"><span class="post-toc-number">6.0.8.</span> <span class="post-toc-text">其他首部字段</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七、确保Web安全的HTTPS"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、确保Web安全的HTTPS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTPS的安全通信机制"><span class="post-toc-number">7.0.1.</span> <span class="post-toc-text">HTTPS的安全通信机制</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#八、确认访问用户身份的认证"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、确认访问用户身份的认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#九、基于HTTP的功能追加协议"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、基于HTTP的功能追加协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#全双工通信的WebSocket"><span class="post-toc-number">9.0.1.</span> <span class="post-toc-text">全双工通信的WebSocket</span></a></li></ol></li></ol></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -260,7 +261,7 @@
   
     
       <!-- Random Thumbnail -->
-      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original>
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
         <script>
   var randomNum = Math.floor(Math.random() * 19 + 1);
 
@@ -287,7 +288,7 @@
 
   <!-- Author Avatar -->
   <div id="author-avatar">
-    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar">
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
   </div>
   <!-- Author Name & Date -->
   <div>
@@ -333,7 +334,7 @@
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
     <li class="mdl-menu__item">
       <a class="post_tag-link" href="/tags/http/">http</a>
-  </li></ul>
+  </ul>
   
 
   <!-- Share -->
@@ -431,8 +432,7 @@
 <th>原因短语</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>1XX</td>
 <td>Informational(信息性状态码)</td>
 <td>接收的请求正在处理</td>
@@ -457,8 +457,7 @@
 <td>Server Error(服务器错误状态码)</td>
 <td>服务器处理请求出错</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h5 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h5><table>
 <thead>
 <tr>
@@ -468,8 +467,7 @@
 <th>场景</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>204</td>
 <td>No Content</td>
 <td>已成功处理,但响应报文中不含实体的主体部分</td>
@@ -533,9 +531,9 @@
 <td>503</td>
 <td>Service Unavailable</td>
 <td>服务器暂时处于超负载或正在进行停机维护,无法处理请求</td>
+<td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="五、与HTTP协作的web服务器"><a href="#五、与HTTP协作的web服务器" class="headerlink" title="五、与HTTP协作的web服务器"></a>五、与HTTP协作的web服务器</h3><h5 id="通信数据转发程序-代理、网关、隧道"><a href="#通信数据转发程序-代理、网关、隧道" class="headerlink" title="通信数据转发程序:代理、网关、隧道"></a>通信数据转发程序:代理、网关、隧道</h5><ul>
 <li><p>代理</p>
 <ul>
@@ -576,8 +574,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>public</td>
 <td>其他用户也可利用缓存</td>
 </tr>
@@ -597,8 +594,7 @@
 <td>must-revalidate</td>
 <td>代理会向源服务器再次证即将返回的响应缓存目前是否仍然有效</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <blockquote>
 <p>同时存在max-age和Expires时,HTTP/1.1会优先处理max-age,忽略Expries,HTTP/1.0相反</p>
 </blockquote>
@@ -616,8 +612,7 @@
 </li>
 <li><p>Pragma<br>  Pragma 是 HTTP/1.1 之前版本的历史遗留字段,仅作为与 HTTP/1.0 的向后兼容而定义<br>  所以发送请求会同时含有以下两个首部字段: </p>
 <pre><code>  Cache-Control: no-cache
-  Pragma: no-cache
-</code></pre></li>
+  Pragma: no-cache</code></pre></li>
 <li><p>Trailer<br>  会事先说明在报文主体后记录了哪些首部字段。该首部字段可应用在 HTTP/1.1 版本分块传输编码时</p>
 </li>
 <li><p>Transfer-Encoding<br>  规定了传输报文主体时采用的编码方式。<br>HTTP/1.1 的传输编码方式仅对分块传输编码有效</p>
@@ -836,8 +831,7 @@
     <span class="token keyword">if</span> <span class="token punctuation">(</span>socket<span class="token punctuation">.</span>bufferedAmount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
       socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token function">getUpdateData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>HTTP/2<br>目标是改善用户在使用Web时的速度体验,基于SPDY</p>
 <ul>
@@ -942,7 +936,8 @@
   <div class="top-bar"></div>
 
   <!-- Sidebar toggle button -->
-  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
     <i class="material-icons">clear_all</i>
     <span class="mdl-button__ripple-container">
       <span class="mdl-ripple"></span>
@@ -1013,8 +1008,8 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
         </li>
         
     
@@ -1048,7 +1043,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>
@@ -1168,7 +1163,8 @@ It will not impact the appearance and can give developers a lot of support :)
   <div class="mdl-mini-footer--right-section">
     <div>
       <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
     </div>
   </div>
   
