@@ -10,7 +10,7 @@
     
     <title>
         
-            sequelize-typescript联表查询 | 
+            g2中同一折线多个颜色 | 
         
         dujun blog
     </title>
@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="jiandandkl">
     <meta name="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",antv g2 折线 颜色">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
@@ -58,9 +58,9 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://jiandandkl.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="sequelize-typescript联表查询 | dujun blog">
+    <meta property="og:title" content="g2中同一折线多个颜色 | dujun blog">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="antv g2 折线 颜色"> 
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -235,7 +235,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#API"><span class="post-toc-number">1.</span> <span class="post-toc-text">API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ForeignKey"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">@ForeignKey</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BelongsTo"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">@BelongsTo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HasOne-hasMany-BelongsToMany"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">@HasOne / @hasMany / @BelongsToMany</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">常见问题</span></a></li></ol>
+        
 
         <!--
         <li class="mdl-menu__item">
@@ -274,7 +274,7 @@
       
       
         <p class="article-headline-p">
-          sequelize-typescript联表查询
+          g2中同一折线多个颜色
         </p>
       </div>
     
@@ -288,7 +288,7 @@
 
   <!-- Author Avatar -->
   <div id="author-avatar">
-    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+    <img src="https://avatars.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
   </div>
   <!-- Author Name & Date -->
   <div>
@@ -297,7 +297,7 @@
         jiandandkl</a>
     </strong>
     <span>
-      1月 04, 2019</span>
+      5月 30, 2021</span>
   </div>
   <div class="section-spacer"></div>
 
@@ -321,7 +321,7 @@
     <li class="mdl-menu__item">
       在其它设备中阅读本文章
     </li>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC20lEQVR42u3aQW7CUAwEUO5/6XZbCQFjO1Tg/7JCKAr/ZVHXHt9+jrxu2NjY2NjY2NjY2B/JvsXX3/urn++fc3+G+/uTb5IzY2NjY5/AfvGnP7hncujkBT16rfmZsbGxsU9gJ0Ur+oEH3/R+Kymi0XOwsbGxsYv3FMY9cdnDxsbGxr6K/ZyXtwo5BhsbGxv7qqFSeSgfjIeS9mM+CMPGxsbezX530PuOz1+Qb2NjY2P/C7t6PS82vYKU3zM6OTY2NvZSdnUhMgllk/HTvHUpt0DY2NjYS9mTQpUPoSZ3Vkvjw+dgY2NjL2VXG4l8jXLSYOShbx4bYGNjY29l5+FrHs2+o52Yj66wsbGxt7KrwWreBlSfUF3ZLL96bGxs7NXsecOQhwqTGGASD2NjY2NvZfcGOpPVyXysnwywCqEFNjY29lJ2dZyUh8HlAnNpI4SNjY19Drv6k0ncmwyDqkVoEkVjY2Njn8nOW458OJUPkq5aJ8LGxsY+hz1vTnpLPMnLnZdPbGxs7N3sfDRTLTD5YCgaCY0HWNjY2Nhb2fMmYbJ2c23DM4oHsLGxsb+WXVh5KbYlSXm7qplJ8NjY2Nhb2clVPXp+oEnEmwcD2NjY2Ceznz8oL3J5acybk3wcho2NjX0C+9oly/y418bDLxobbGxs7KXs6j/0eUybxwOTxqZZwLCxsbEXsXuhbxIDzBd0ejEwNjY29snsSZPQG+XPly8LBRUbGxt7KTtfrOktVuaxQS9CyF8iNjY29lZ29cqbhHzkNAlx84YEGxsbeyu7Vxjy4pRHDvMI+cXzsbGxsVezJ4HBfKw/L2DJy8XGxsY+gV1tM5IGo/orvYAhGnJhY2NjYxfH+nkknK/jTKJobGxsbOykUclLXW/AlBTIt7Qi2NjY2F/CzodKeXuQD/errzt5AjY2NvY57F7QmxSS8opkayDVbEWwsbGxV7DPubCxsbGxsbGxsbE/5voFjufilXC5vC4AAAAASUVORK5CYII=">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACzElEQVR42u3aUU4rQQwEwNz/0u8dACV020GEmcoXQkt2aviw7Pbj35WfBzY2NjY2NjY2NvZHsh/x5+vz37zmyzPPfpO/d3ZmbGxs7BvYOWBzlGdP5r+fnRkbGxv7HnZePFr2s2PNkO2ZsbGxsbFfH/01qW0enjYS8XVjY2NjY7cFLHny9aW8twXCxsbGvpk9G/TPqEnk0L7lB2dp2NjY2B/P3gSuv/XzL+Tb2NjY2B/JXq0zlq3IuyKE4WmxsbGxD2VvFiLbVqQNbpNRVDJgwsbGxr6H/bpI5OWkLWObQVXxPDY2NvYF7NcNRlJCkkK4CW7bt2NjY2Pfw86j02RlJ7+ytv3Iixk2Njb2Pey8nGzajKTVSS49vw5sbGzse9hv+Lq4bUi+px1jFQUYGxsb+1B2PgCarUK24DYGLkILbGxs7KPZ+Qgpbyo2EW9bSqPnsbGxsQ9lt+Xhve1BO0KaLW5iY2Njn82eFaf2rx6jT9smDTswbGxs7D/OTtZlNquQeeORn2cYQmNjY2Mfys5biHb0P7uaTbnCxsbGvpO9KRVJK7KPgfPvqVsRbGxs7CPY7w1xNzFD8g+YlUxsbGzss9nvArSty77BaNeJsLGxsU9lF3+2GPq0RbEdWkXlEBsbG/sCdhLH5kWrDSE2o6uoWcLGxsY+lJ0cNG9dZtTZM/mZsbGxse9hDwPU9Vpke6GzURc2Njb22exN3DtbwZkFt5vVH2xsbOwb2C3pJ5qWWQwQtTTY2NjYh7Lfhdms4CQX1Ea/3wyVsLGxsQ9iz8pDcrh8rWczliqKIjY2NvbR7LYxyIOBdoDVxrrY2NjY2O0S/GaxZra42a7LD1MRbGxs7MvYmwI2Gz/NLh0bGxsbe/b6fSuyfyM2Njb2new83J2NnzZXM4uZsbGxse9h/0TQm19fHty2JRYbGxv7BvY9H2xsbGxsbGxsbOyP+fwHy/3Yu5/gP+8AAAAASUVORK5CYII=">
   </ul>
   
 
@@ -333,7 +333,7 @@
   </button>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
     <li class="mdl-menu__item">
-      
+      <a class="post_tag-link" href="/tags/antv-g2-折线-颜色/">antv g2 折线 颜色</a>
   </ul>
   
 
@@ -376,69 +376,76 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <blockquote>
-<p>使用sequelize-typescript的联表查询遇到点问题,文档不太清晰,对着那几个api: <code>ForeignKey</code>,<code>BelongsTo</code>,<code>HasOne</code>一个个调用尝试,想着以后有空写个清晰简单的文章,帮助其他同学节约点时间。(拖了两个月,组内有其他同学也遇到这个问题,立了flag赶紧补上)</p>
+<p>刷了n久的面经,终于拿到满意的offer,可以做自己想做的事了,比如写写博客(后续考虑也写个面经)</p>
 </blockquote>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h5 id="ForeignKey"><a href="#ForeignKey" class="headerlink" title="@ForeignKey"></a>@ForeignKey</h5><p>这个还是比较明显的,需要外联的key,用在源模型中。<br>参数是目标模型。</p>
-<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">ForeignKey</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span></code></pre>
-<h5 id="BelongsTo"><a href="#BelongsTo" class="headerlink" title="@BelongsTo"></a>@BelongsTo</h5><p>创建源模型到目标模型的关系。<br>可以传1到2个参数,第一个参数是目标模型,第二个参数是源模型的外联key,第二个参数也可以传一个对象,如:</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 只传目标模型,需要指定源模型的@ForeignKey</span>
-@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">)</span>
+<p>这次的功能就是要在一条折线上,根据是否报警展示蓝色还是红色。本来计划通过color的回调来设置,发现不行,然后陆续试了几种方法都不行。文档是不可能找到答案的,尝试到issues中找找思路。<br>先是看到了一个不支持的回复,但不忍心这么拒绝设计师;</p>
+<p><img src="/img/dujun/cannot.png" alt></p>
+<p>又找了找发现了分离数据,再创建个view的方法,但这是个多图联动的图,已经创建4个view了,那岂不得8个view(如果类型再多,就更多view了);</p>
+<p><img src="/img/dujun/moreview.png" alt></p>
+<p>又接着在issues里淘,发现可以通过自定义shape的方式来实现<a href="https://g2.antv.vision/zh/examples/case/line#line8" target="_blank" rel="noopener">g2 demo</a>:</p>
+<p><img src="/img/dujun/shape.png" alt></p>
+<p>研究demo发现使用了<a href="https://g2.antv.vision/zh/docs/api/advanced/register-shape" target="_blank" rel="noopener">registerShape</a>,它是将每个点加入到path中,并自定义颜色、粗细等属性。demo是将数据按x轴切成连续的两部分,并没有按照数据的类型自定义属性。</p>
+<p>按照这个思路尝试去实现这次的需求,期间遇到诸如不同类型之间的第一段或者最后一段未绘制线、最后一大段类型的线未绘制等问题,最终都一一解决实现了想要的效果,完整代码如下:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">registerShape</span><span class="token punctuation">(</span><span class="token string">'line'</span><span class="token punctuation">,</span> <span class="token string">'split-line'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token function">draw</span><span class="token punctuation">(</span>cfg<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> group <span class="token operator">=</span> container<span class="token punctuation">.</span><span class="token function">addGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> pointArrs <span class="token operator">=</span> cfg<span class="token punctuation">.</span>points<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 通过flag标记一种类型的线的开头与结尾</span>
+        <span class="token keyword">let</span> sendAlarmFlag <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cfg<span class="token punctuation">.</span>data<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> item <span class="token operator">=</span> cfg<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// 传入teamName作为源模型的外联key,默认目标模型对应的外联key为目标模型的主键</span>
-@<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token string">'teamName'</span><span class="token punctuation">)</span></code></pre>
-<h5 id="HasOne-hasMany-BelongsToMany"><a href="#HasOne-hasMany-BelongsToMany" class="headerlink" title="@HasOne / @hasMany / @BelongsToMany"></a>@HasOne / @hasMany / @BelongsToMany</h5><p>不太好用就不介绍了-_-</p>
-<blockquote>
-<p>又研究了下发现@ForeignKey可以不使用,改为放在@BelongsTo里,见如下示例</p>
-</blockquote>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h3><p>player.ts</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Player<span class="token operator">></span> <span class="token punctuation">{</span>
-  @Column
-  teamName<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 开头点的格式</span>
+            path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm <span class="token operator">===</span> sendAlarmFlag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 如果和上一个alarm相同就push L进path</span>
+            path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 如果最后一个点就渲染</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> cfg<span class="token punctuation">.</span>data<span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              group<span class="token punctuation">.</span><span class="token function">addShape</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                attrs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                  path<span class="token punctuation">,</span>
+                  stroke<span class="token punctuation">:</span> sendAlarmFlag <span class="token operator">?</span> <span class="token string">'#F04943'</span> <span class="token punctuation">:</span> <span class="token string">'#00BF8A'</span><span class="token punctuation">,</span>
+                  lineWidth<span class="token punctuation">:</span> <span class="token number">2</span>
+                <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 如果是报警点,要把非报警点连到这里(绘制正常点的结尾段)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            group<span class="token punctuation">.</span><span class="token function">addShape</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+              attrs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                path<span class="token punctuation">,</span>
+                stroke<span class="token punctuation">:</span> sendAlarmFlag <span class="token operator">?</span> <span class="token string">'#F04943'</span> <span class="token punctuation">:</span> <span class="token string">'#00BF8A'</span><span class="token punctuation">,</span>
+                lineWidth<span class="token punctuation">:</span> <span class="token number">2</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">// 绘制正常点的开头段</span>
+              path <span class="token operator">=</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span>
+              <span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+          sendAlarmFlag <span class="token operator">=</span> item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-  @Column
-  gameName<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> group<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  @Column
-  teamId<span class="token punctuation">:</span> number<span class="token punctuation">;</span>
-
-  <span class="token comment" spellcheck="true">// 传入targetKey指定目标模型的外联key</span>
-  @<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Team<span class="token punctuation">,</span> <span class="token punctuation">{</span> foreignKey<span class="token punctuation">:</span> <span class="token string">'teamName'</span><span class="token punctuation">,</span> targetKey<span class="token punctuation">:</span> <span class="token string">'tname'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  team<span class="token punctuation">:</span> Team<span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 关联其他模型</span>
-  @<span class="token function">BelongsTo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Game<span class="token punctuation">,</span> <span class="token punctuation">{</span> foreignKey<span class="token punctuation">:</span> <span class="token string">'gameName'</span><span class="token punctuation">,</span> targetKey<span class="token punctuation">:</span> <span class="token string">'gname'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  game<span class="token punctuation">:</span> Game<span class="token punctuation">;</span>
-
-  <span class="token keyword">static</span> <span class="token keyword">async</span> <span class="token function">findData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">findOne</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      include<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-        model<span class="token punctuation">:</span> Team<span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">// 获取目标模型某些key</span>
-        attributes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      raw<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>team.ts</p>
-<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  tableName<span class="token punctuation">:</span> <span class="token string">'team'</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Team</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Team<span class="token operator">></span> <span class="token punctuation">{</span>
-  @Column
-  tname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<p>game.ts</p>
-<pre class=" language-javascript"><code class="language-javascript">@<span class="token function">Table</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  tableName<span class="token punctuation">:</span> <span class="token string">'game'</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Game</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span><span class="token operator">&lt;</span>Game<span class="token operator">></span> <span class="token punctuation">{</span>
-  @Column
-  gname<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><pre><code>Error: Game is not associated to Player </code></pre><p>处理: 目标模型没有与源模型相关联,是<code>@BelongsTo</code>下缺少<code>team: Team</code></p>
-<pre><code>Error: Foreign key for &quot;Game&quot; is missing on &quot;Player&quot;</code></pre><p>处理: 缺少foreignKey,可以在源模型的key上添加<code>@ForeignKey</code>,或者在<code>@BelongsTo</code>第二个参数里添加foreignKey对象</p>
+<span class="token comment" spellcheck="true">// 使用</span>
+<span class="token keyword">const</span> view <span class="token operator">=</span> chart<span class="token punctuation">.</span><span class="token function">createView</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+view<span class="token punctuation">.</span><span class="token function">line</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token string">'time*value'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token string">'split-line'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>效果图:</p>
+<p><img src="/img/dujun/morecolor.jpeg" alt></p>
 
     
 
@@ -460,8 +467,8 @@
         <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://jiandandkl.github.io/2019/01/04/sequelize-typescript联表查询/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://jiandandkl.github.io/2019/01/04/sequelize-typescript联表查询/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://jiandandkl.github.io/2021/05/30/g2中同一折线多个颜色/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2021/05/30/g2中同一折线多个颜色/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     queue.offer(function() {
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -492,21 +499,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/01/10/2018年终总结/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/09/30/《图解HTTP》读书笔记/" id="post_nav-older" class="next-content">
+        <a href="/2020/12/20/小程序生成分享海报/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
