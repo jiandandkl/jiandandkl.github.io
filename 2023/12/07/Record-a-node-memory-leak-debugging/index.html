@@ -235,7 +235,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collect-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Collect Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Analyze-Data"><span class="post-toc-number">2.</span> <span class="post-toc-text">Analyze Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">3.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Summarize"><span class="post-toc-number">4.</span> <span class="post-toc-text">Summarize</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collect-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Collect Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Analyze-Data"><span class="post-toc-number">2.</span> <span class="post-toc-text">Analyze Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">3.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Summarize"><span class="post-toc-number">4.</span> <span class="post-toc-text">Summarize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Easter-eggs"><span class="post-toc-number">5.</span> <span class="post-toc-text">Easter eggs</span></a></li></ol>
 
         <!--
         <li class="mdl-menu__item">
@@ -375,12 +375,12 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>Recently, I take over a project which has the problem of memory leaking.</p>
+        <p>Recently, I took over a project that has a memory leaking problem.</p>
 <p><img src="/img/dujun/memory1.png" alt="memoryBefore"></p>
 <h3 id="Collect-Data"><a href="#Collect-Data" class="headerlink" title="Collect Data"></a>Collect Data</h3><ol>
 <li>choose tool</li>
 </ol>
-<p>I choosed heapdump to help generate memory snapshot and then import to chrome devtool that can reflect memory change.</p>
+<p>I chose to use heapdump to generate a memory snapshot and then imported it to Chrome DevTools, which can reflect changes in memory.</p>
 <ol start="2">
 <li>code</li>
 </ol>
@@ -389,7 +389,7 @@
 <span class="token punctuation">}</span>
 
 <span class="token function">setInterval</span><span class="token punctuation">(</span>collectMemory<span class="token punctuation">,</span> <span class="token number">60000</span><span class="token punctuation">)</span></code></pre>
-<p>Put above code into <code>main.js</code> or <code>index.js</code>, after 1 minute you can see new file appear in your project. If in 1 minute memory don’t change very big, you can adjust the number of the time bigger.</p>
+<p>Put the above code into main.js or index.js. After one minute, you should see a new file appear in your project. If the memory usage does not increase significantly after one minute, you can increase the wait time accordingly.</p>
 <h3 id="Analyze-Data"><a href="#Analyze-Data" class="headerlink" title="Analyze Data"></a>Analyze Data</h3><ol>
 <li>import to devtool</li>
 </ol>
@@ -403,19 +403,22 @@
 <p>There is a main function we need to focus - Comparison.</p>
 <p>Choose a snapshot, then choose a earlier snapshot to compare</p>
 <p><img src="/img/dujun/comparion.png" alt="comparion"></p>
-<p>We can see the data change from the <code>Size Delta</code> column. I didn’t find any useful information from the system or array, then I open the string item, there are lots of requested information look like log.</p>
+<p>We can see a change in the “Size Delta” column of the data. I didn’t find any useful information from the system or array, so I opened the string item. There were many requested pieces of information that looked like logs.</p>
 <p><img src="/img/dujun/logger.png" alt="logger"></p>
-<p>choosing any record, and details show on the below. A function named <code>logger</code> catched my attention, then I guess one of log functions cause this.</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>Return to project, there are three possible log functions, first is a custom function replaced default <code>console.log</code>, second is a third module named <code>yog-log</code>, last is <code>logger</code> from <code>nestjs</code>.</p>
-<p>Firstly, I annotated the custom log functoin, but I found it’s not the reason cause memory leaking after testing.<br>Then I exclude the logger of <code>nestjs</code> lightly, because <code>nestjs</code> is very popular in many projects so that it would expose long ago if it had memory leaking.<br>So there is only one possibility - <code>yog-log</code>. When I went to github to find more information about it, I found a <a href="https://github.com/fex-team/yog-log/issues/12" target="_blank" rel="noopener">issue</a> about memory leaking. According to this issue, I search more information about <code>domain</code> on <a href="https://nodejs.org/docs/latest/api/domain.html" target="_blank" rel="noopener">nodejs website</a> which shows <code>domain</code> is pending deprecation. I also found some articles refer to <code>domain</code> may cause memory leaking.<br>Then I return to <code>yog-log</code>, and it indeed used <code>domain</code> in <code>index.js</code> and it has a function called <code>logger</code> which we saw in snapshot.</p>
+<p>I selected a record and its details were displayed below. The function “logger” caught my attention, and I suspect that one of the log functions may be the cause of this issue.</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>Returning to the project, I noticed that there are three possible log functions. The first is a custom function that replaced the default console.log. The second is the logger function from nestjs. The last is a third-party module named yog-log.</p>
+<p>Firstly, I annotated the custom log function, but after testing, I found that it was not the cause of the memory leak.<br>I excluded the nestjs logger as a potential cause of the memory leak since it is widely used in many projects and any memory leak issues would have been discovered long ago.<br>Based on the available information, it seems that the only possible cause of the memory leak is the yog-log module. Upon further investigation on GitHub, I discovered an <a href="https://github.com/fex-team/yog-log/issues/12" target="_blank" rel="noopener">issue</a> related to memory leaks with this module. Additionally, I found information on the <a href="https://nodejs.org/docs/latest/api/domain.html" target="_blank" rel="noopener">nodejs website</a> indicating that the domain module, which is used by yog-log, is pending deprecation and may cause memory leaks.<br>Returning to the yog-log module, I confirmed that it uses the domain module in its index.js file and contains a function named logger, which we saw in the snapshot.</p>
 <p><img src="/img/dujun/normalMemory.png" alt="normal memory"></p>
-<p>After annotating <code>yog-log</code>, memory looks come back to normal.</p>
+<p>After annotating the yog-log module, the memory usage returned to normal.</p>
 <p><img src="/img/dujun/normalMemoryOnServer.png" alt="normal memory on server"></p>
 <h3 id="Summarize"><a href="#Summarize" class="headerlink" title="Summarize"></a>Summarize</h3><ol>
 <li>use heapdump to collect data</li>
 <li>analyze snapshot to find problem</li>
 <li>verify result on test envirnment</li>
 </ol>
+<h3 id="Easter-eggs"><a href="#Easter-eggs" class="headerlink" title="Easter eggs"></a>Easter eggs</h3><p>While writing this article, I discovered another tool called <a href="https://github.com/zhangyuang/v8-profiler-rs" target="_blank" rel="noopener">v8-profiler-rs</a> on GitHub that provides visualization pages and auxiliary analysis reports that can help identify issues more quickly.</p>
+<p><img src="/img/dujun/v8-profiler-rs.png" alt="v8-profiler-rs"></p>
+<p>the answer is already obvious with the logger full of screen</p>
 
     
 
