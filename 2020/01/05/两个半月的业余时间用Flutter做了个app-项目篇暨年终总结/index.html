@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            两个半月的业余时间用Flutter做了个app(项目篇暨年终总结) | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="两个半月的业余时间用Flutter做了个app(项目篇暨年终总结) | dujun blog">
+    <meta property="og:description" content>
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小鱼干"><span class="post-toc-number">1.</span> <span class="post-toc-text">小鱼干</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么要做这个app"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">为什么要做这个app</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#软件著作权"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">软件著作权</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不需要软著的安卓市场"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">不需要软著的安卓市场</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#苹果开发者账号"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">苹果开发者账号</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#读的书"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">读的书</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#健康状况"><span class="post-toc-number">2.</span> <span class="post-toc-text">健康状况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#展望未来"><span class="post-toc-number">3.</span> <span class="post-toc-text">展望未来</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新年寄语"><span class="post-toc-number">4.</span> <span class="post-toc-text">新年寄语</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          两个半月的业余时间用Flutter做了个app(项目篇暨年终总结)
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/jiandandkl">
+        jiandandkl</a>
+    </strong>
+    <span>
+      1月 05, 2020</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE2UlEQVR42u3awVLcMBAE0P3/n4ZrDth0z8ibQJ5OKVgs6Xmr0prR68NYjBcCfPjw4TPw4cOHz8CH74fwveLxxYNuf3s/y58/Tz5/NVfytPvPt3vHhw8fPnz49nz5lFdwV8tK5spB77e9+WSxd3z48OHDh+8QX7ughDgPJckaZgTtK79/Pj58+PDhw/e3+BLWnHgfTdpIhA8fPnz48P0OvnahbWm+/cyscI8PHz58+PA9zZdPU1znOlSgzzc/W8Obeh348OHDhw9fGSB+37/fer8PHz58+PD993ztuI8L+UE9OdifLT0ka4sE8OHDhw8fvgVfvqAcYt8Ob4NU2ySY7RcfPnz48OE7xXffbG4L8UnT+nCYiBHzYIQPHz58+PA9x3f/uHx7eVM8ugq2aCHM2vkH7vfhw4cPHz58ZZu8LcTvL4e1B/s2+rRfkdUtA3z48OHDhy+4YZWEhpZ79pKSnycvpoVeXVDDhw8fPnz4RsGlLWe3h/9ZpMjjyKxNnhf98eHDhw8fvj1f2zK/P+q3kSIvnefzni1qRLkPHz58+PDhK/mSo3JbGmjDx2Zj93GqbbR/E93w4cOHDx++BV++iOdKDJsmek7fXoC7fDI+fPjw4cO34GsDR1tef2cjfFM4yAc+fPjw4cO34Tu1lJw7v/rWxqZNi73YOz58+PDhw7fgSyZrA8c7m+v5UX+/I3z48OHDh+8U374JnTxtE01mjYRN6MGHDx8+fPie4Ms31oaAWbk8h2sDU/t1wYcPHz58+J7gSx7REufH781c7Xo2T8aHDx8+fPhO8bWRpaVZRYTRevKmeFuSwIcPHz58+PZ8eZm7bX63YaWdN3nCbM348OHDhw/f03x5IJiVD9oCfd6S37zmWSDDhw8fPnz4NnxnS+F5s3xTtpiVFWYXAuqKCz58+PDhwxfzfYxGW4LPKZP4MuNuZ8eHDx8+fPhO8eWBIC+ptxubXX1rm+uzdeLDhw8fPnxn+c7GjrYYsWkGbCLOrEyPDx8+fPjwneJLJsiL7PvSQNvGbpsNbYsCHz58+PDhO8WXby8pZ+8L63mpIinE5wWLpAmBDx8+fPjwneXLQ0Pbcp7FjvwFz67EDUMYPnz48OHDt+Zrt9G2zPNXlRf9Z69w05zAhw8fPnz49nzJ4pKjeFtEmLXAN2WFNjxd/hU+fPjw4cO35muX1R7v943zdlV5FGt3gQ8fPnz48O359pe98qN+ey1sduDPm+v1lwMfPnz48OFb8+Vl6+S3bdTYPDMvdrRt/qJYjw8fPnz48JVt8rylnUPsr7vt41FNk0QifPjw4cOH7xDf7D/7qLUch4xZazx58fkXpSgZ4MOHDx8+fCVfHg7aWJOjz4oCzxUdvnnZ+PDhw4cP34KvHbPNzDafH/s31+nqrwI+fPjw4cO34DvbhJ6xFpfDyqZ7fnEtD2348OHDhw/fnm/WPG6L75sYlBfT870kc0XBBR8+fPjw4RvxbdrVeeE74Z61EGYX2uoQhg8fPnz48L2drw0EbQNg1ibPL8/hw4cPHz58P5HviVb07Crb7PCf7KIo1uPDhw8fPnwlX17g3kPM2uqzZnn+gh9vk+PDhw8fPnyj4vuG6Ynnt2WI5K+K4IIPHz58+PDFfEY78OHDhw+fgQ8fPnwGPnz/8PgEFKaCoO+LAKQAAAAASUVORK5CYII=">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>多年前是因为想要做个app,所以学了技术开发(虽然阴差阳错的学了前端);后来微信出了小程序,做了个领养流浪猫的小程序,但还是有些遗憾。<br>今年7月看到Flutter的消息,玩了官方demo,被种草了。开始学习是在国庆期间,看了几个视频,找到一本电子书<a href="https://book.flutterchina.club/" target="_blank" rel="noopener">《Flutter实战》</a>,因为当时眼睛已经不太舒服了,还把这本书做成了mobi格式,放在kindle上看,有空就拿出来看先学一些基础知识。</p>
+<h3 id="小鱼干"><a href="#小鱼干" class="headerlink" title="小鱼干"></a>小鱼干</h3><h4 id="为什么要做这个app"><a href="#为什么要做这个app" class="headerlink" title="为什么要做这个app"></a>为什么要做这个app</h4><p><a href="https://mp.weixin.qq.com/s/sEn5gA_T9zw3rChcb99agA" target="_blank" rel="noopener">关于我们</a></p>
+<h4 id="软件著作权"><a href="#软件著作权" class="headerlink" title="软件著作权"></a>软件著作权</h4><p>阿里应用开发平台有个软件著作自助服务,当时就是信了这个邪了,显示36个工作日可办理下来,算了下时间绰绰有余,就直接在这办理了。然而提交信息后,36个工作日的倒计时并没有走,一直是”等待审核”之类的状态,电话咨询了下,是因为免费的,要排队等待。那就等等吧也不着急,之后就埋头写代码了,没想到一个月过去了,突然意识到这也太久了吧,于是计划自己去版权中心提交吧。然后到版权中心的网站上登记,填报信息,预约了下周去提交,巧的是没过两天就收到易版权的消息,提交的资料有些问题。其中一条是说明文档缺少软件截图,加了大概三张截图;一两天后又收到回复至少需要十张截图(有需要申报的同学可作参考)。之后就进入版权中心审核,36个工作日倒计时了。<br>易版权上登记的说明比版权中心网的登记说明详细,也给出了有效修改意见,不知道在易版权上填报信息后自行到版权中心提交资料是否能快一点。</p>
+<h4 id="不需要软著的安卓市场"><a href="#不需要软著的安卓市场" class="headerlink" title="不需要软著的安卓市场"></a>不需要软著的安卓市场</h4><p>当时也是找了不需要软著的安卓市场,没有确切答案,然后就一个个注册,试验<br>如果软著没有办下来,可以先上架不需要软著的: 百度手机助手,安智。<br>赞一下百度手机助手,审核超快,好像都没超过24小时。</p>
+<h4 id="苹果开发者账号"><a href="#苹果开发者账号" class="headerlink" title="苹果开发者账号"></a>苹果开发者账号</h4><p>付款银行卡得是双标卡,既有银联表也有visa标;<br>我是后来联系了苹果开发者客服,报了visa的卡号,客服给付的款;<br>不要主动打电话给苹果开发者客服,有一次等待了约十多分钟;留下联系方式等待苹果回复会比较快。</p>
+<h4 id="读的书"><a href="#读的书" class="headerlink" title="读的书"></a>读的书</h4><p>《北野武的小酒馆》<br>就是想看看北野武是有多奇怪的一个人</p>
+<p>《华盛顿传》<br>伟大又平凡的一个人</p>
+<p>《番茄工作法图解》<br>《高效能人士的七个习惯》<br>强烈推荐,两本书对个人效率提升都有很大的帮助</p>
+<p>《小狗钱钱》<br>强烈推荐,看完这本书,两人的每月生活费(不包含房租)由8k-1w降为3k左右</p>
+<p>《富爸爸穷爸爸》<br>强烈推荐,工资翻番,可能生活会有一些改善,但并不会有很大的改变,是因为理财观念的问题,希望大家都能早日跳出”老鼠赛跑”</p>
+<p>《如何让他买》<br>推荐,特意找了些营销方面的书来看,收获还是挺多的,但是运用里面的方法到实际还是有一定距离的,值得反复看</p>
+<h3 id="健康状况"><a href="#健康状况" class="headerlink" title="健康状况"></a>健康状况</h3><p>因为计划年前要上线app,除正常上班外,每天晚上7点到12点都在开发小鱼干,周末也是每天开发十几个小时,眼睛里的红血丝渐渐变为红血条,每天靠眼药水和蒸汽眼罩续命,也有过一段时间早晨醒来会猛的睁眼,确认下是否失明,还能看见再睡会;<br>之前看疯狂的石头,郭涛饰演的保安队长上厕所一直尿不出来,当时很不理解究竟是什么感觉,怎么会尿不出来呢。<br><img src="/img/dujun/timg.jpeg" alt><br>现在自己的”肾功能”也出现问题就理解了,形容一下: 明明还有,水龙头却被渐渐拧上了。</p>
+<h3 id="展望未来"><a href="#展望未来" class="headerlink" title="展望未来"></a>展望未来</h3><p>自己设立了一个中低高的 KPI,过年期间订单数达到中标就去下海了;<br>不过即使这次失败,有机会还是会继续去创业,毕竟亟待解决的问题还是蛮多的,比如从《汉尼拔》上看到的:<br><img src="/img/dujun/han1.png" alt><br><img src="/img/dujun/han2.png" alt><br><img src="/img/dujun/han3.png" alt></p>
+<p><strong>现阶段想做的功能和事还挺多的,欢迎有丰富业余时间,想一起建立一个边工作边撸猫工作环境的同学入伙~</strong><br><strong>如运营/市场/前端等</strong></p>
+<h3 id="新年寄语"><a href="#新年寄语" class="headerlink" title="新年寄语"></a>新年寄语</h3><p>希望大家都能实现自己的梦想!<br><img src="/img/dujun/luojie.jpg" alt></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2020/01/05/两个半月的业余时间用Flutter做了个app-项目篇暨年终总结/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2020/01/05/两个半月的业余时间用Flutter做了个app-项目篇暨年终总结/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/12/20/小程序生成分享海报/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/01/03/两个半月的业余时间用Flutter做了个app-技术篇/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

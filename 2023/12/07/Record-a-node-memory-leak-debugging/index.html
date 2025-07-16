@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            Record a node memory leak debugging | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content=",node memory domain">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Record a node memory leak debugging | dujun blog">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="node memory domain"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collect-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Collect Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Analyze-Data"><span class="post-toc-number">2.</span> <span class="post-toc-text">Analyze Data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">3.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Summarize"><span class="post-toc-number">4.</span> <span class="post-toc-text">Summarize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Easter-eggs"><span class="post-toc-number">5.</span> <span class="post-toc-text">Easter eggs</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          Record a node memory leak debugging
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/jiandandkl">
+        jiandandkl</a>
+    </strong>
+    <span>
+      12月 07, 2023</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADiUlEQVR42u3aS27jQAwFQN//0jPbATKx3yO7BS9KqyCWpWZ5QfDz+uP653ohwIEDBw4cOHDgwIHjizle8fXzW7/9nXz6/pn/OXRwtmEsOHDgwIHjAseHVFQePafJIdo7i1hw4MCBA8c1jvcJ7H0ya4+eo8/emNyPAwcOHDi+h+P9oZM7k2T82z2bchEHDhw4cHw/R0KTh9c2Ljex4MCBAweO2xyb9lxbsOXPP1s04sCBAweOZzjylPb9fz+634EDBw4cOH5wzJJisqzWlnmnFiDqiHDgwIEDx1GOPFElDb5TYd9b1MaBAwcOHLc5Zu2/2Uhpk6TzkVL+fxw4cODAcY9jNhbaF12bNJx8miRpHDhw4MBxlqMtz9rE1q4XtGTJwhwOHDhw4HiSYzNYilacg3s2RVrCsSrhcODAgQPHaFVunwg3hdnsaW0yxoEDBw4cz3C0zcFZG2629DYr8JIyDwcOHDhw3OZISrI21eUF1WZwlaB/+BYOHDhw4LjGsW/nzQ66X8Jun48DBw4cOO5xtOVZUkS9yusUWftGHDhw4MBxj2OWqPIgZ+3FHG7zo+LAgQMHjrMc+bCnGOSsU2AScJ50ceDAgQPHkxyzRbS8sXiqpZin4faHxIEDBw4cZznyYqxdfUi+mzytHS+tmoM4cODAgePynKVdgNs0+G40B6N0jgMHDhw4rnG0BVhyuHZk1b63Td5FosWBAwcOHCOOvBmX3HmqLJyl5zYuHDhw4MBxmyNvxuVBFuOfcnTUFn6/ngoHDhw4cBzlyMPIm3rtckOyuNC+sUjDOHDgwIHjKMcsEeYlXH70/WhqeE4cOHDgwHGUY7heFoyaZk9Ihkaz4RYOHDhw4HieI28O5u28dlhVD41GoywcOHDgwHGbY1YUbYq9Nom2/8nbhThw4MCB40mOPLBT7cI80c5OiwMHDhw4nufIwzi1XpC3JvOWYvF2HDhw4MBxlGPTqstHRG0jMv8Z2jW7D81BHDhw4MCx5jiQqEYB5+VW2zSsC0scOHDgwHGBo02uswR8qpl4PdHiwIEDB45DHO1CQ54mT4XXNhajM+DAgQMHji/jmCXaWXMwL96KHwwHDhw4cHwBR770NhtBte9qG5o4cODAgeMZjrZJNxsOJQVYWyKuikMcOHDgwHGBo12DzhuC7UJD3uabNQpx4MCBA8dtDhcOHDhw4MCBAwcOHDi+7PoLwjsq82dHsE8AAAAASUVORK5CYII=">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      <a class="post_tag-link" href="/tags/node-memory-domain/">node memory domain</a>
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>Recently, I took over a project that has a memory leaking problem.</p>
+<p><img src="/img/dujun/memory1.png" alt="memoryBefore"></p>
+<h3 id="Collect-Data"><a href="#Collect-Data" class="headerlink" title="Collect Data"></a>Collect Data</h3><ol>
+<li>choose tool</li>
+</ol>
+<p>I chose to use heapdump to generate a memory snapshot and then imported it to Chrome DevTools, which can reflect changes in memory.</p>
+<ol start="2">
+<li>code</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">collectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  heapdump<span class="token punctuation">.</span><span class="token function">writeSnapshot</span><span class="token punctuation">(</span><span class="token string">'./'</span> <span class="token operator">+</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.heapsnapshot'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">setInterval</span><span class="token punctuation">(</span>collectMemory<span class="token punctuation">,</span> <span class="token number">60000</span><span class="token punctuation">)</span></code></pre>
+<p>Put the above code into main.js or index.js. After one minute, you should see a new file appear in your project. If the memory usage does not increase significantly after one minute, you can increase the wait time accordingly.</p>
+<h3 id="Analyze-Data"><a href="#Analyze-Data" class="headerlink" title="Analyze Data"></a>Analyze Data</h3><ol>
+<li>import to devtool</li>
+</ol>
+<p>Open <code>chrome://inspect</code>, click this</p>
+<p><img src="/img/dujun/opendevtool.png" alt="open devtool"></p>
+<p>On this window, click <code>Memory</code>, click load or right click empty area on the left, import snapshot file order by time</p>
+<p><img src="/img/dujun/emptydevtool.png" alt="empty devtool"></p>
+<ol start="2">
+<li>look for clues</li>
+</ol>
+<p>There is a main function we need to focus - Comparison.</p>
+<p>Choose a snapshot, then choose a earlier snapshot to compare</p>
+<p><img src="/img/dujun/comparion.png" alt="comparion"></p>
+<p>We can see a change in the “Size Delta” column of the data. I didn’t find any useful information from the system or array, so I opened the string item. There were many requested pieces of information that looked like logs.</p>
+<p><img src="/img/dujun/logger.png" alt="logger"></p>
+<p>I selected a record and its details were displayed below. The function “logger” caught my attention, and I suspect that one of the log functions may be the cause of this issue.</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>Returning to the project, I noticed that there are three possible log functions. The first is a custom function that replaced the default console.log. The second is the logger function from nestjs. The last is a third-party module named yog-log.</p>
+<p>Firstly, I annotated the custom log function, but after testing, I found that it was not the cause of the memory leak.<br>I excluded the nestjs logger as a potential cause of the memory leak since it is widely used in many projects and any memory leak issues would have been discovered long ago.<br>Based on the available information, it seems that the only possible cause of the memory leak is the yog-log module. Upon further investigation on GitHub, I discovered an <a href="https://github.com/fex-team/yog-log/issues/12" target="_blank" rel="noopener">issue</a> related to memory leaks with this module. Additionally, I found information on the <a href="https://nodejs.org/docs/latest/api/domain.html" target="_blank" rel="noopener">nodejs website</a> indicating that the domain module, which is used by yog-log, is pending deprecation and may cause memory leaks.<br>Returning to the yog-log module, I confirmed that it uses the domain module in its index.js file and contains a function named logger, which we saw in the snapshot.</p>
+<p><img src="/img/dujun/normalMemory.png" alt="normal memory"></p>
+<p>After annotating the yog-log module, the memory usage returned to normal.</p>
+<p><img src="/img/dujun/normalMemoryOnServer.png" alt="normal memory on server"></p>
+<h3 id="Summarize"><a href="#Summarize" class="headerlink" title="Summarize"></a>Summarize</h3><ol>
+<li>use heapdump to collect data</li>
+<li>analyze snapshot to find problem</li>
+<li>verify result on test envirnment</li>
+</ol>
+<h3 id="Easter-eggs"><a href="#Easter-eggs" class="headerlink" title="Easter eggs"></a>Easter eggs</h3><p>While writing this article, I discovered another tool called <a href="https://github.com/zhangyuang/v8-profiler-rs" target="_blank" rel="noopener">v8-profiler-rs</a> on GitHub that provides visualization pages and auxiliary analysis reports that can help identify issues more quickly.</p>
+<p><img src="/img/dujun/v8-profiler-rs.png" alt="v8-profiler-rs"></p>
+<p>the answer is already obvious with the logger full of screen</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2023/12/07/Record-a-node-memory-leak-debugging/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2023/12/07/Record-a-node-memory-leak-debugging/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2025/07/15/A-web3-introductory-project/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2023/04/10/不固定高度的同步滚动/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

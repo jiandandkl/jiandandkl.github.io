@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            A web3 introductory project | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="A web3 introductory project | dujun blog">
+    <meta property="og:description" content>
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Overview"><span class="post-toc-number">1.</span> <span class="post-toc-text">Overview</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Main-Features"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Main Features</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Project-Structure"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Project Structure</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Detailed-Wallet-Interaction-Implementation"><span class="post-toc-number">2.</span> <span class="post-toc-text">Detailed Wallet Interaction Implementation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Wallet-Connection-Using-EVM-MetaMask-as-Example"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. Wallet Connection (Using EVM/MetaMask as Example)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Wallet-Event-Listening"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. Wallet Event Listening</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Balance-Queries-and-On-Chain-Interactions"><span class="post-toc-number">3.</span> <span class="post-toc-text">Balance Queries and On-Chain Interactions</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Contract-Interactions-and-Transaction-Flow"><span class="post-toc-number">4.</span> <span class="post-toc-text">Contract Interactions and Transaction Flow</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Initiating-Transactions"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">1. Initiating Transactions</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-EVM-Chain-Contract-Interactions-Signing-amp-Sending-Transactions"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2. EVM Chain Contract Interactions (Signing &amp; Sending Transactions)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Source-Code-and-Live-Demo"><span class="post-toc-number">5.</span> <span class="post-toc-text">Source Code and Live Demo</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          A web3 introductory project
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars.githubusercontent.com/u/119213?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/dujun">
+        dujun</a>
+    </strong>
+    <span>
+      7月 15, 2025</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC1UlEQVR42u3aUVLjMBAE0Nz/0uwBIE73yGwZ6fkrhRNHT1TRzIxeX0deL2xsbGxsbGxsbOxHsl/x9f1T757zw1cGT373k3ev6zVjY2Njb83+8Ke/fM81pn1OsunJmrGxsbFPYF9Hy3V4XAfbdaTVRUW5ZmxsbGzs68fNCo/2s9jY2NjYvxFg18tNWkVJMdM2mLCxsbFPZq80jNpGUh6Kj+ilYWNjYz+enQ9Nn/P6v863sbGxsR/MXmnNt8VGUrrMQi5aOTY2Nvam7DwY2uIkaULlxcZsndjY2NinsVtSHmlJaK1vxIfxAzY2Nvam7Lb8aFtO7Yg33+46dLGxsbE3ZRf/yi+Pb1vevcNgbGxs7L3ZSUsoubsee3kxk3wLNjY29gnslaZP22bKC5L2mUvzbWxsbOw/zp6NdfNoWSkhZvG5dOYUGxsb+w+yZ1cyxJ1tzcpdbGxs7DPZ6/HQtoraYe1tTS5sbGzsrdkrETXbspWh73UT6q0IGxsbe2t2gsyLkza6Vg4JFeMNbGxs7E3Z7eh01hhq2095cBaDYWxsbOyt2bMgmR2avHckUGwfNjY29pHsWVGRt5/arV+KXmxsbOxN2Xk8zBpJ7RHM2XHM4ZlTbGxs7I3Y64vLF3pvG6uIWGxsbOyt2XkJce8Gra/hhsOX2NjY2FuwE1h+aLKNsVlR1MYhNjY29t7svDHUjl1ngdcOhqNfDzY2NvYB7FmzftaiSrZ1/f3Y2NjYJ7PbsmQ2oL23tfSh1MHGxsbelN1ebes/f8J1sym/i42NjX0aeykS4rKhbgD9whACGxsbe2/2vZEzGwwnMZZvLjY2NvaZ7Nlg9fo5+fatt5CGvTRsbGzs49mzw5ptdCXUD+vExsbGxo7Lj/WSJm/6FyUQNjY29gHsHFPExiiWkhKlbUJhY2Nj781eadzkUdS+Mw+26LPY2NjYm7LPubCxsbGxsbGxsbEfc/0D8H1JS6G/eUYAAAAASUVORK5CYII=">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Recently, a friend is considering finding a remote Web3 job. I’ve also seen people asking about Web3 entry-level questions on V2EX. Since my previous Web3 project ended, I’ve organized Web3-related code to share, hoping to help everyone get a general understanding of contract interactions.</p>
+<h3 id="Main-Features"><a href="#Main-Features" class="headerlink" title="Main Features"></a>Main Features</h3><ul>
+<li>Wallet connections for OKX, MetaMask, Phantom, and other wallets</li>
+<li>Multi-chain contract interactions for EVM, Tron, Solana, and other chains</li>
+</ul>
+<h3 id="Project-Structure"><a href="#Project-Structure" class="headerlink" title="Project Structure"></a>Project Structure</h3><pre><code>web3-start/
+├── src/
+│   ├── components/           # Frontend interaction components (wallet interaction, trading panels, etc.)
+│       ├── Interaction/      # Contract interaction feature pages
+│       ├── SelectChain/      # Chain selection page
+│       ├── SelectWallet/     # Wallet selection page
+│   ├── constants/            # Chain configurations and constant definitions
+│   ├── contracts/            # Smart contract source code
+│   ├── hook/                 # Business logic hooks (wallet connection, transaction processing, balance queries, etc.)
+│   ├── lib/                  # Blockchain interaction libraries (EVM transactions, etc.)
+│   ├── store/                # State management (wallet, balance, user info, etc.)
+│   ├── types/                # TypeScript type declarations
+├── public/                   # Public resources directory
+├── .env                      # Environment variables (API keys and other configurations)
+├── README.md                 # Project documentation
+├── package.json              # Dependencies and script configurations</code></pre><h2 id="Detailed-Wallet-Interaction-Implementation"><a href="#Detailed-Wallet-Interaction-Implementation" class="headerlink" title="Detailed Wallet Interaction Implementation"></a>Detailed Wallet Interaction Implementation</h2><p>The project supports multiple wallet connections (such as MetaMask, OKX, TronLink, Sui Wallet) and account management. The core logic is mainly distributed in <code>src/hook/useConnectWallet.ts</code> and related components. The following will use EVM wallets as an example to analyze the implementation of wallet connection and on-chain transactions in detail.</p>
+<h3 id="1-Wallet-Connection-Using-EVM-MetaMask-as-Example"><a href="#1-Wallet-Connection-Using-EVM-MetaMask-as-Example" class="headerlink" title="1. Wallet Connection (Using EVM/MetaMask as Example)"></a>1. Wallet Connection (Using EVM/MetaMask as Example)</h3><p>Wallet connection is mainly achieved by calling the wallet injected into the browser (such as window.ethereum) and requesting account authorization:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> connectEvmWallet <span class="token operator">=</span> async <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> provider <span class="token operator">=</span> <span class="token function">getProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Request user authorization and connect wallet</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> accounts <span class="token punctuation">}</span> <span class="token operator">=</span> await <span class="token function">connectAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      connector<span class="token punctuation">:</span> provider<span class="token punctuation">,</span>
+      chainId<span class="token punctuation">:</span> CHAIN<span class="token punctuation">[</span>chainType<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    await <span class="token function">handleConnectSuccess</span><span class="token punctuation">(</span>accounts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">handleConnectError</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>For OKX, Tron, Sui, and other wallets, there are also dedicated connection methods, for example:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> connectTronWallet <span class="token operator">=</span> async <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> currentProvider <span class="token operator">=</span> window<span class="token operator">?</span><span class="token punctuation">.</span>tronLink<span class="token punctuation">;</span>
+  <span class="token function">subscribeTronWallet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  window<span class="token operator">?</span><span class="token punctuation">.</span>tron<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span> method<span class="token punctuation">:</span> <span class="token string">"eth_requestAccounts"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    addressRef<span class="token punctuation">.</span>current <span class="token operator">=</span> currentProvider<span class="token punctuation">.</span>tronWeb<span class="token punctuation">.</span>defaultAddress<span class="token punctuation">.</span>base58<span class="token punctuation">;</span>
+    <span class="token function">handleSignMessage</span><span class="token punctuation">(</span>
+      currentProvider<span class="token punctuation">.</span>tronWeb<span class="token punctuation">.</span>defaultAddress<span class="token punctuation">.</span>base58<span class="token punctuation">,</span>
+      CHAIN<span class="token punctuation">.</span>TRON<span class="token punctuation">.</span>brief
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="2-Wallet-Event-Listening"><a href="#2-Wallet-Event-Listening" class="headerlink" title="2. Wallet Event Listening"></a>2. Wallet Event Listening</h3><p>After connecting the wallet, you need to listen for events such as account switching and disconnection:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> subscribeSuiWallet <span class="token operator">=</span> async <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> provider <span class="token operator">=</span> window<span class="token punctuation">.</span>okxwallet<span class="token punctuation">.</span>sui<span class="token punctuation">;</span>
+  provider<span class="token punctuation">.</span>features<span class="token punctuation">[</span><span class="token string">"standard:events"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"connect"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+    <span class="token function">setIsConnected</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  provider<span class="token punctuation">.</span>features<span class="token punctuation">[</span><span class="token string">"standard:events"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>
+    <span class="token string">"accountChanged"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span>publicKey<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>publicKey<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Switched to account </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>publicKey<span class="token punctuation">.</span><span class="token function">toBase58</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  provider<span class="token punctuation">.</span>features<span class="token punctuation">[</span><span class="token string">"standard:events"</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"disconnect"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// disconnect();</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="Balance-Queries-and-On-Chain-Interactions"><a href="#Balance-Queries-and-On-Chain-Interactions" class="headerlink" title="Balance Queries and On-Chain Interactions"></a>Balance Queries and On-Chain Interactions</h2><p>After successful wallet connection, you can get the current account balance and display it on the frontend page:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> fetchBalanceLogic <span class="token operator">=</span> async <span class="token punctuation">(</span><span class="token keyword">set</span><span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> chain<span class="token punctuation">:</span> <span class="token keyword">any</span><span class="token punctuation">,</span> address<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span> isLoading<span class="token punctuation">:</span> <span class="token keyword">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> balance<span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEvmChain</span><span class="token punctuation">(</span>chain<span class="token punctuation">.</span>brief<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    balance <span class="token operator">=</span> await <span class="token function">getEvmBalance</span><span class="token punctuation">(</span>chain<span class="token punctuation">.</span>brief<span class="token punctuation">,</span> address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      balance<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        origin<span class="token punctuation">:</span> balance<span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> <span class="token function">formatUnits</span><span class="token punctuation">(</span>balance<span class="token punctuation">,</span> chain<span class="token punctuation">.</span>decimals<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// Other chains (such as Solana, Tron) handling methods</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="Contract-Interactions-and-Transaction-Flow"><a href="#Contract-Interactions-and-Transaction-Flow" class="headerlink" title="Contract Interactions and Transaction Flow"></a>Contract Interactions and Transaction Flow</h2><p>The frontend initiates transactions through wallet signatures to complete on-chain operations such as transfers. The typical flow is as follows:</p>
+<h3 id="1-Initiating-Transactions"><a href="#1-Initiating-Transactions" class="headerlink" title="1. Initiating Transactions"></a>1. Initiating Transactions</h3><p>In <code>src/components/Interaction/index.tsx</code>, users can initiate transactions by entering an amount and clicking the button:</p>
+<pre class=" language-tsx"><code class="language-tsx">const handleTrade = async () => {
+  if (!inputValue || Number(inputValue) <= 0) {
+    addToast({ title: "Please enter a valid amount", color: "danger" });
+    return;
+  }
+  // Check if balance is sufficient
+  if (Number(inputValue) >= 1) {
+    addToast({ title: "Please enter a amount < 1", color: "danger" });
+    return;
+  }
+
+  try {
+    const voteTokenAmount = parseUnits(
+      inputValue,
+      CHAIN[chain.brief!.toUpperCase()]?.decimals ?? 18
+    );
+    // ...Additional validation and authorization logic
+    setLoading(true);
+
+    await handleTradeFunc({
+      inputValue: Number(inputValue),
+      address,
+      voteToken: {
+        tokenAddress: "",
+        chainType: chain.brief,
+        tokenDecimals: CHAIN[chain.brief!.toUpperCase()]?.decimals,
+      },
+      mainTokenBalance: balance.origin,
+    });
+
+    setShowTradeSuccess(true);
+    setTimeout(() => setShowTradeSuccess(false), 2000);
+  } catch (error: any) {
+    // ...Error handling
+  } finally {
+    setLoading(false);
+  }
+};</code></pre>
+<h3 id="2-EVM-Chain-Contract-Interactions-Signing-amp-Sending-Transactions"><a href="#2-EVM-Chain-Contract-Interactions-Signing-amp-Sending-Transactions" class="headerlink" title="2. EVM Chain Contract Interactions (Signing &amp; Sending Transactions)"></a>2. EVM Chain Contract Interactions (Signing &amp; Sending Transactions)</h3><p>In <code>src/lib/okxEvm.ts</code>, the <code>viem</code> library and wallet signing are used to implement transaction sending:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> publicClient <span class="token operator">=</span> <span class="token function">createPublicClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span> chain<span class="token punctuation">,</span> transport<span class="token punctuation">:</span> <span class="token function">http</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> request <span class="token punctuation">}</span> <span class="token operator">=</span> await publicClient<span class="token punctuation">.</span><span class="token function">simulateContract</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  address<span class="token punctuation">:</span> params<span class="token punctuation">.</span>smartContractAddress as <span class="token template-string"><span class="token string">`0x</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>string<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span>
+  abi<span class="token punctuation">:</span> EvmVoteAbi<span class="token punctuation">,</span>
+  functionName<span class="token punctuation">:</span> <span class="token string">"placeVote"</span><span class="token punctuation">,</span>
+  args<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      params<span class="token punctuation">.</span>voteId<span class="token punctuation">,</span>
+      params<span class="token punctuation">.</span>tokenAddress<span class="token punctuation">,</span>
+      params<span class="token punctuation">.</span>tokenAmount<span class="token punctuation">,</span>
+      params<span class="token punctuation">.</span>expireTimestamp<span class="token punctuation">,</span>
+      params<span class="token punctuation">.</span>signature<span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  value<span class="token punctuation">:</span> <span class="token function">parseUnits</span><span class="token punctuation">(</span>params<span class="token punctuation">.</span>tokenAmount<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  account<span class="token punctuation">:</span> params<span class="token punctuation">.</span>senderAddress as <span class="token template-string"><span class="token string">`0x</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>string<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Send transaction</span>
+<span class="token keyword">const</span> walletClient <span class="token operator">=</span> <span class="token function">createWalletClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  chain<span class="token punctuation">,</span>
+  transport<span class="token punctuation">:</span> <span class="token function">custom</span><span class="token punctuation">(</span>window<span class="token operator">?</span><span class="token punctuation">.</span>ethereum<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> await walletClient<span class="token punctuation">.</span><span class="token function">writeContract</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="Source-Code-and-Live-Demo"><a href="#Source-Code-and-Live-Demo" class="headerlink" title="Source Code and Live Demo"></a>Source Code and Live Demo</h2><p>GitHub Repository: <a href="https://github.com/jiandandkl/web3-start" target="_blank" rel="noopener">https://github.com/jiandandkl/web3-start</a></p>
+<p>Live Demo: <a href="https://web3-start-sandy.vercel.app/" target="_blank" rel="noopener">https://web3-start-sandy.vercel.app/</a></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2025/07/15/A-web3-introductory-project/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2025/07/15/A-web3-introductory-project/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2023/12/07/Record-a-node-memory-leak-debugging/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            动手搭建翻译协作平台 | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="动手搭建翻译协作平台 | dujun blog">
+    <meta property="og:description" content>
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#集成-git"><span class="post-toc-number">2.</span> <span class="post-toc-text">集成 git</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#api-访问"><span class="post-toc-number">3.</span> <span class="post-toc-text">api 访问</span></a></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          动手搭建翻译协作平台
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/jiandandkl">
+        dujun05</a>
+    </strong>
+    <span>
+      10月 21, 2021</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACy0lEQVR42u3aUW7bQAwEUN//0u0BgsgzpFrY2qevILakfRIQhsN9/TnyeGFjY2NjY2NjY2N/JPsVHz/Pur7C9V1+u86viw7u+GYN2NjY2I9mv/nTH7PzBzG7y2rN2NjY2AewZ2UmKXJtWZo99DfrxMbGxsa+/E7bPFyftWmEsLGxsbFnBSyJezYNRvsasLGxsc9k76P5ZKF5SburycHGxsY+gZ0PTT/n5/8638bGxsb+YHZ7JIF+XsbykUNStN6sHBsbG/uh7FmbkSy9hf2LdggbGxv7NHYSuO+L0HVUtNkw9GaF2NjY2A9lby63KXLXDzTfgln8HhsbG/vR7P3wtQ2D2vFwcp1iyw42Njb2o9l5cLNBJtdp25tVAcPGxsb+WnYbteeAWSlqW5FiIIGNjY39aHYe+tRRzgJ8c6SFjY2N/VD2JqZpH1D+aPbxFjY2NjZ23mDkn+Zj4M14uM7SsLGxsR/EnjUSd40K2sdUFzxsbGzsR7Nb8Czumd2lfUk37DnFxsbG/ir2JjzKv99G/7Ozis2X2NjY2I9jX/9bv4nvk4ebjBBmQRI2NjY2dhvf34vftCXY2NjYp7Fnw92cugmGZiUWGxsbG7u95TDoCVqO2QsosjRsbGzsR7DbgUHeVOStwmz7TlEssbGxsR/Nzm8w2455V6lrmyJsbGzsc9hJW9KWojbcz6Oi2fgZGxsb+wR2vvR2nLBpNtqiiI2NjX0yux2pzkKovBWZraceD2BjY2N/OXvfVOTsZLibhFn5p9jY2NgnsGf/1s/alTZySoKt2wa92NjY2F/ObjF5admEU/vyho2NjX0aezbobctPsvQ8TrqhgGFjY2MfyZ4too3187tEJRAbGxsbO25F8sXNvj8Ls7CxsbFPYN8V37cD4Fn8lL8qbGxs7BPYbYPRxvrtJs67zsLGxsY+gX3OgY2NjY2NjY2Njf0xx19sbUlLk99NQgAAAABJRU5ErkJggg==">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>传统翻译过程是跑出项目中的中文文件,将文件发给翻译人员,翻译完成传回研发,研发再替换到项目中。(一般给翻译人员的是 excel 或者 txt,还需要脚本进行转换至 json 之类的格式);</p>
+<p>进一步,待翻译文件被上传至在线文档,多名翻译人员可以同时翻译;</p>
+<p>更进一步,使用专门的翻译协作平台, 如 Transifex, Lokalise, Crowdin,这些平台基本都集成了 github,gitlab 等仓库,也支持 api 访问。</p>
+<p>因这些平台收费都不菲(企业 5000 刀/年),今天介绍的是开源的 weblate,基于其开源项目可以自行搭建协作平台。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li>安装 docker,docker-compose</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> docker
+<span class="token function">sudo</span> curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -s<span class="token variable">)</span></span>-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -m<span class="token variable">)</span></span> -o /usr/local/bin/docker-compose
+<span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/local/bin/docker-compose
+<span class="token function">sudo</span> <span class="token function">ln</span> -s /usr/local/bin/docker-compose /usr/bin/docker-compose</code></pre>
+<ol start="2">
+<li>下载 weblate</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/WeblateOrg/docker-compose.git weblate-docker
+<span class="token function">cd</span> weblate-docker <span class="token operator">&amp;&amp;</span> <span class="token function">vi</span> docker-compose.override.yml</code></pre>
+<p>创建 docker-compose.override.yml 文件</p>
+<pre class=" language-bash"><code class="language-bash">version: <span class="token string">'3'</span>
+services:
+    weblate:
+        ports:
+        - 80:8080
+        environment:
+        // 发送邮件邮箱
+        WEBLATE_EMAIL_HOST: smtp.example.com
+        // 邮箱用户名
+        WEBLATE_EMAIL_HOST_USER: user
+        // 邮箱密码
+        WEBLATE_EMAIL_HOST_PASSWORD: ***
+        // 必须配置才能通过weblate.example.com访问
+        WEBLATE_ALLOWED_HOSTS: weblate.example.com
+        // 管理员密码
+        WEBLATE_ADMIN_PASSWORD: ***
+        // 站点域名
+        WEBLATE_SITE_DOMAIN: weblate.example.com
+        // 管理员邮箱
+        WEBLATE_ADMIN_EMAIL: admin@example.com</code></pre>
+<pre class=" language-bash"><code class="language-bash">// 启动
+docker-compose up
+// 停止
+docker-compose down</code></pre>
+<p>附上<a href="https://docs.weblate.org/zh_CN/latest/admin/install/docker.html" target="_blank" rel="noopener">官方安装步骤</a></p>
+<h3 id="集成-git"><a href="#集成-git" class="headerlink" title="集成 git"></a>集成 git</h3><ol>
+<li><p>将 ssh 密钥添加至 git 仓库<br><img src="/img/dujun/weblate-ssh.png.png" alt></p>
+</li>
+<li><p>在组件的设置里配置 git 地址<br><img src="/img/dujun/weblate-git.png" alt></p>
+</li>
+<li><p>设置文件模板<br><img src="/img/dujun/weblate-file.png" alt></p>
+</li>
+</ol>
+<p><a href="https://docs.weblate.org/zh_CN/latest/vcs.html" target="_blank" rel="noopener">官方版本控制集成文档</a></p>
+<h3 id="api-访问"><a href="#api-访问" class="headerlink" title="api 访问"></a>api 访问</h3><p>如果对 weblate 的安全持有怀疑,weblate 也提供了 api 访问</p>
+<ol>
+<li>上传<br>官方文档给了示例:</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">curl -X POST \
+    -F file<span class="token operator">=</span>@strings.xml \
+    -H <span class="token string">"Authorization: Token TOKEN"</span> \
+    http://example.com/api/translations/hello/android/cs/file/</code></pre>
+<p>但是尝试了多次都失败了,一度怀疑是配置有问题,后来发现是缺少了 method,加上<code>method: replace</code>就可以了</p>
+<p>下面是用 node 实现的关键步骤</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"commander"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> axios <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"axios"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fsExtra <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fs-extra"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> FormData <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"form-data"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 获取相关参数</span>
+program
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">"-p, --path &lt;path>"</span><span class="token punctuation">,</span> <span class="token string">"翻译文件的路径"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token string">"-o, --organization &lt;organization>"</span><span class="token punctuation">,</span> <span class="token string">"所属组织"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 创建axiosBase</span>
+<span class="token keyword">const</span> axiosBase <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  baseURL<span class="token punctuation">:</span> <span class="token string">"http://xxx/api/"</span><span class="token punctuation">,</span>
+  headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"Content-Disposition"</span><span class="token punctuation">:</span> <span class="token string">"attachment"</span><span class="token punctuation">,</span>
+    <span class="token string">"Content-Type"</span><span class="token punctuation">:</span> <span class="token string">"multipart/form-data"</span><span class="token punctuation">,</span>
+    Authorization<span class="token punctuation">:</span> <span class="token string">"Token xxx"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 获取所有需要上传的文件</span>
+<span class="token keyword">const</span> files <span class="token operator">=</span> fsExtra<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>uploadPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 组装formdata</span>
+<span class="token keyword">let</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"method"</span><span class="token punctuation">,</span> <span class="token string">"replace"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"filename"</span><span class="token punctuation">,</span> fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> headers <span class="token operator">=</span> formData<span class="token punctuation">.</span><span class="token function">getHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 上传文件</span>
+<span class="token keyword">await</span> axiosBase<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>
+  <span class="token template-string"><span class="token string">`translations/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>organization<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>componentName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileLang<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/file/`</span></span><span class="token punctuation">,</span>
+  formData<span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> headers <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<ol start="2">
+<li>下载<br>翻译人员在平台上翻译完成后,再通过脚本将文案拉到项目中。</li>
+</ol>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 获取目标文件夹中所有需要下载的语言</span>
+<span class="token keyword">const</span> fileList <span class="token operator">=</span> <span class="token keyword">await</span> fsExtra<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>outputPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 下载所有语言的文件</span>
+fileList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> <span class="token punctuation">[</span>fileName<span class="token punctuation">]</span> <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">axiosBase</span><span class="token punctuation">(</span>
+    <span class="token template-string"><span class="token string">`translations/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>organization<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>componentName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/file/`</span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 将文件写入本地</span>
+<span class="token keyword">await</span> fsExtra<span class="token punctuation">.</span><span class="token function">outputFileSync</span><span class="token punctuation">(</span>
+  <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>outputPath<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json`</span></span><span class="token punctuation">,</span>
+  JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token string">"utf8"</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>如果国际化使用的是 kiwi,也可以支持,大致思路就是将导出的 txt 转为 json 再上传,翻译完成,下载后再转为 txt,关键包为 d3-dsv。</p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2021/10/21/动手搭建翻译协作平台/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2021/10/21/动手搭建翻译协作平台/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2022/05/12/webpack热加载优化及vite踩坑记录/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2021/05/30/g2中同一折线多个颜色/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

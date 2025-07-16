@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            g2中同一折线多个颜色 | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content=",antv g2 折线 颜色">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="g2中同一折线多个颜色 | dujun blog">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="antv g2 折线 颜色"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          g2中同一折线多个颜色
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/jiandandkl">
+        jiandandkl</a>
+    </strong>
+    <span>
+      5月 30, 2021</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACzElEQVR42u3aUU4rQQwEwNz/0u8dACV020GEmcoXQkt2aviw7Pbj35WfBzY2NjY2NjY2NvZHsh/x5+vz37zmyzPPfpO/d3ZmbGxs7BvYOWBzlGdP5r+fnRkbGxv7HnZePFr2s2PNkO2ZsbGxsbFfH/01qW0enjYS8XVjY2NjY7cFLHny9aW8twXCxsbGvpk9G/TPqEnk0L7lB2dp2NjY2B/P3gSuv/XzL+Tb2NjY2B/JXq0zlq3IuyKE4WmxsbGxD2VvFiLbVqQNbpNRVDJgwsbGxr6H/bpI5OWkLWObQVXxPDY2NvYF7NcNRlJCkkK4CW7bt2NjY2Pfw86j02RlJ7+ytv3Iixk2Njb2Pey8nGzajKTVSS49vw5sbGzse9hv+Lq4bUi+px1jFQUYGxsb+1B2PgCarUK24DYGLkILbGxs7KPZ+Qgpbyo2EW9bSqPnsbGxsQ9lt+Xhve1BO0KaLW5iY2Njn82eFaf2rx6jT9smDTswbGxs7D/OTtZlNquQeeORn2cYQmNjY2Mfys5biHb0P7uaTbnCxsbGvpO9KRVJK7KPgfPvqVsRbGxs7CPY7w1xNzFD8g+YlUxsbGzss9nvArSty77BaNeJsLGxsU9lF3+2GPq0RbEdWkXlEBsbG/sCdhLH5kWrDSE2o6uoWcLGxsY+lJ0cNG9dZtTZM/mZsbGxse9hDwPU9Vpke6GzURc2Njb22exN3DtbwZkFt5vVH2xsbOwb2C3pJ5qWWQwQtTTY2NjYh7Lfhdms4CQX1Ea/3wyVsLGxsQ9iz8pDcrh8rWczliqKIjY2NvbR7LYxyIOBdoDVxrrY2NjY2O0S/GaxZra42a7LD1MRbGxs7MvYmwI2Gz/NLh0bGxsbe/b6fSuyfyM2Njb2new83J2NnzZXM4uZsbGxse9h/0TQm19fHty2JRYbGxv7BvY9H2xsbGxsbGxsbOyP+fwHy/3Yu5/gP+8AAAAASUVORK5CYII=">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      <a class="post_tag-link" href="/tags/antv-g2-折线-颜色/">antv g2 折线 颜色</a>
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <blockquote>
+<p>刷了n久的面经,终于拿到满意的offer,可以做自己想做的事了,比如写写博客(后续考虑也写个面经)</p>
+</blockquote>
+<p>这次的功能就是要在一条折线上,根据是否报警展示蓝色还是红色。本来计划通过color的回调来设置,发现不行,然后陆续试了几种方法都不行。文档是不可能找到答案的,尝试到issues中找找思路。<br>先是看到了一个不支持的回复,但不忍心这么拒绝设计师;</p>
+<p><img src="/img/dujun/cannot.png" alt></p>
+<p>又找了找发现了分离数据,再创建个view的方法,但这是个多图联动的图,已经创建4个view了,那岂不得8个view(如果类型再多,就更多view了);</p>
+<p><img src="/img/dujun/moreview.png" alt></p>
+<p>又接着在issues里淘,发现可以通过自定义shape的方式来实现<a href="https://g2.antv.vision/zh/examples/case/line#line8" target="_blank" rel="noopener">g2 demo</a>:</p>
+<p><img src="/img/dujun/shape.png" alt></p>
+<p>研究demo发现使用了<a href="https://g2.antv.vision/zh/docs/api/advanced/register-shape" target="_blank" rel="noopener">registerShape</a>,它是将每个点加入到path中,并自定义颜色、粗细等属性。demo是将数据按x轴切成连续的两部分,并没有按照数据的类型自定义属性。</p>
+<p>按照这个思路尝试去实现这次的需求,期间遇到诸如不同类型之间的第一段或者最后一段未绘制线、最后一大段类型的线未绘制等问题,最终都一一解决实现了想要的效果,完整代码如下:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">registerShape</span><span class="token punctuation">(</span><span class="token string">'line'</span><span class="token punctuation">,</span> <span class="token string">'split-line'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token function">draw</span><span class="token punctuation">(</span>cfg<span class="token punctuation">,</span> container<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> group <span class="token operator">=</span> container<span class="token punctuation">.</span><span class="token function">addGroup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> pointArrs <span class="token operator">=</span> cfg<span class="token punctuation">.</span>points<span class="token punctuation">;</span>
+        <span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 通过flag标记一种类型的线的开头与结尾</span>
+        <span class="token keyword">let</span> sendAlarmFlag <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cfg<span class="token punctuation">.</span>data<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> item <span class="token operator">=</span> cfg<span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 开头点的格式</span>
+            path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm <span class="token operator">===</span> sendAlarmFlag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 如果和上一个alarm相同就push L进path</span>
+            path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 如果最后一个点就渲染</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">===</span> cfg<span class="token punctuation">.</span>data<span class="token operator">?</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              group<span class="token punctuation">.</span><span class="token function">addShape</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                attrs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                  path<span class="token punctuation">,</span>
+                  stroke<span class="token punctuation">:</span> sendAlarmFlag <span class="token operator">?</span> <span class="token string">'#F04943'</span> <span class="token punctuation">:</span> <span class="token string">'#00BF8A'</span><span class="token punctuation">,</span>
+                  lineWidth<span class="token punctuation">:</span> <span class="token number">2</span>
+                <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 如果是报警点,要把非报警点连到这里(绘制正常点的结尾段)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            group<span class="token punctuation">.</span><span class="token function">addShape</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+              attrs<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                path<span class="token punctuation">,</span>
+                stroke<span class="token punctuation">:</span> sendAlarmFlag <span class="token operator">?</span> <span class="token string">'#F04943'</span> <span class="token punctuation">:</span> <span class="token string">'#00BF8A'</span><span class="token punctuation">,</span>
+                lineWidth<span class="token punctuation">:</span> <span class="token number">2</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              path <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+              <span class="token comment" spellcheck="true">// 绘制正常点的开头段</span>
+              path <span class="token operator">=</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">[</span><span class="token string">'M'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span><span class="token string">'L'</span><span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> pointArrs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">]</span>
+              <span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span>
+          sendAlarmFlag <span class="token operator">=</span> item<span class="token punctuation">.</span>send_alarm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> group<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 使用</span>
+<span class="token keyword">const</span> view <span class="token operator">=</span> chart<span class="token punctuation">.</span><span class="token function">createView</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+view<span class="token punctuation">.</span><span class="token function">line</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token string">'time*value'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token string">'split-line'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>效果图:</p>
+<p><img src="/img/dujun/morecolor.jpeg" alt></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2021/05/30/g2中同一折线多个颜色/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2021/05/30/g2中同一折线多个颜色/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2021/10/21/动手搭建翻译协作平台/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/12/20/小程序生成分享海报/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.3.3 -->
+
+    <!-- Title -->
+    
+    <title>
+        
+            两个半月的业余时间用Flutter做了个app(技术篇) | 
+        
+        dujun blog
+    </title>
+
+    <!-- Meta & Info -->
+    <meta charset="utf-8">
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="jiandandkl">
+    <meta name="description" content>
+    <meta name="keywords" content=",flutter">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+
+    <!--iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dujun blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://jiandandkl.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="两个半月的业余时间用Flutter做了个app(技术篇) | dujun blog">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="flutter"> 
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS & jQuery -->
+    
+        <link rel="stylesheet" href="/css/material.min.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <!-- Config CSS -->
+
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+  #post-content pre {
+    background: #272822;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/queue.js"></script>
+    
+
+    <!-- UC Browser Compatible -->
+    <script>
+        var agent = navigator.userAgent.toLowerCase();
+        if(agent.indexOf('ucbrowser')>0) {
+            document.write("<link rel=\"stylesheet\" href=\"/css/uc.css\">");
+            alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+        }
+    </script>
+
+    
+
+    
+
+
+    <!-- Bing Background -->
+    
+
+    <!-- Custom Head -->
+    
+<link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">一些小结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-路由跳转"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">1. 路由跳转</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-循环widget"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">2. 循环widget</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-宽高设置"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">3. 宽高设置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-区分环境"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">4. 区分环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-flutter封装的组件"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">5. flutter封装的组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-dio增加配置信息"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">6. dio增加配置信息</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-ios证书设置指南"><span class="post-toc-number">1.0.7.</span> <span class="post-toc-text">7. ios证书设置指南</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#奇怪的问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">奇怪的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用的第三方包"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用的第三方包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#弹窗"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">弹窗</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#loading"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">loading</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#网络图片处理"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">网络图片处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下拉刷新"><span class="post-toc-number">3.0.4.</span> <span class="post-toc-text">下拉刷新</span></a></li></ol></li></ol></li></ol>
+
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+  <!-- Paradox Post Header -->
+  
+    
+      <!-- Random Thumbnail -->
+      <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50" data-original="">
+        <script>
+  var randomNum = Math.floor(Math.random() * 19 + 1);
+
+  if (!$('.post_thumbnail-random').attr('data-original')) {
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+  }
+  $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+      
+      
+        <p class="article-headline-p">
+          两个半月的业余时间用Flutter做了个app(技术篇)
+        </p>
+      </div>
+    
+
+    
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+  <!-- Author Avatar -->
+  <div id="author-avatar">
+    <img src="https://avatars2.githubusercontent.com/u/16009933?v=4" width="44px" height="44px" alt="Author Avatar" />
+  </div>
+  <!-- Author Name & Date -->
+  <div>
+    <strong>
+      <a href="https://github.com/jiandandkl">
+        jiandandkl</a>
+    </strong>
+    <span>
+      1月 03, 2020</span>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- Favorite -->
+  <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+  <span id="busuanzi_container_page_pv" style="margin-right: 10%">
+    本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <!-- Qrcode -->
+  
+  <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">
+      在其它设备中阅读本文章
+    </li>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEIklEQVR42u3aSZLbMBAEwPn/p+0HTIiu6sbYEpw8KSSSAhIH9IKvX67g+kKACRMmTJgwuTBhwoTp7Zm+4uv7U9/fkPz6/Z6XA33x5ud/fB5DMUdMmDBhwnQRUzLc5wkkE3t+czL0aCNfLAkmTJgwYbqbKdluk2nMwosZzT44wIQJEyZMmFqmNqR4ppwFGe34MWHChAkTpufPbdo5Cxfa5BkTJkyYMGFqC6BJi/EUX570Pt//D2rhmDBhwoTpzZjaRPQTP//V802YMGHChOltmGbHYpKNf5PK5gHH/qDPy5liwoQJE6YrmPKNsy3R5t/vj/i0hd0oYcaECRMmTFcwzY7mtPdsgOrprdufmDBhwoTpbqb2sMu+HHzqzhnuy+8xYcKECdMVTKcGPQss2nQ6CTjyQOFAhQATJkyYML09U/4Hf9g+43vyhUne//xskejOUl9MmDBhwvQhTO32mTca22XYhwjtOzFhwoQJ0//DdDb53LDO/qvY7JM0HhMmTJgwXcGUPLBpLm428uQN+RImoQkmTJgwYbqPaTbJTcvzVHF59l9FCIIJEyZMmK5gOnvktB1c24CccQyPrmLChAkTpuuY8qFv0td2e94fh82LyJgwYcKE6W6mWVtxBpo3Svel53aZMWHChAnTrUzJQGfpaPv+TYI9G3+d+mLChAkTpg9hmm35z0lmmwa3y3N2/C/nggkTJkyYLmLK08XNQGfN0f20h0EGJkyYMGG6iCkpes6+P1W0bQ/0bErMmDBhwoTpPqbNUIpkcvTsbMEOpNCYMGHChOkKpjxBbYOATel2n3jnJenhwR1MmDBhwvSxTEmyumlq5suTvyEfbVE+xoQJEyZMVzCdai4OhxLQzPhmC4MJEyZMmG5lapPGTRN0s/HPtv8hKyZMmDBhuoIpbx9uDtZswo4DSWx5PyZMmDBhuonpuby72WLzaW+S8Ly92v6KCRMmTJjuYMpLosm022fzkmu+YJvSMCZMmDBhupWp3YzPDrpdjLapmRSsMWHChAnT3Uyb0m2bjs4O6LQl6VmZGBMmTJgw3ceUty3b1LdlnTUpZ0FMNAtMmDBhwnQRUz6xdrhJ2bddsM0i5WPDhAkTJkx3MJ1NLzfHW/OU+x/XwjFhwoQJ00cx/Z3tuU1o25HMEuYDFQJMmDBhwvT2TF/x1ZaDN089c+dBw2qEmDBhwoTpIqZZazM/NlqUVsvUNz+a89zCrCsEmDBhwoTpA5nyDbXFPRt8bJLbYvyYMGHChOk/ZjpVtM3fNjsMVDQvfyIgwIQJEyZMH8s0O1jTcrdv2xwM+vG4CRMmTJgwvQFTu21vtvm2GfkcKLSHh368nYkJEyZMmN6MadYsHBZP42M6bdCQhxHDgAATJkyYMH0gkysKCFyYMGHChAkTJhcmTJje5foNJQeG9n44PB0AAAAASUVORK5CYII=">
+  </ul>
+  
+
+  <!-- Tags (bookmark) -->
+  
+  <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">bookmark</i>
+    <span class="visuallyhidden">bookmark</span>
+  </button>
+  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+    <li class="mdl-menu__item">
+      <a class="post_tag-link" href="/tags/flutter/">flutter</a>
+  </ul>
+  
+
+  <!-- Share -->
+  <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <blockquote>
+<p>技术背景: 做了几年前端,会用node<br>写这篇文章是自己对这段时间做个技术总结,记录一些开发过程中比较难以解决的问题和经验,同时希望对Flutter感兴趣但还在观望的同学加入Flutter开发,简单易上手</p>
+</blockquote>
+<p><strong>学习资料</strong><br><a href="https://book.flutterchina.club/" target="_blank" rel="noopener">Flutter 实战</a>, 入门可以看这本电子书,很多flutter知识都是从这里学习到的,在此感谢下作者</p>
+<h2 id="一些小结"><a href="#一些小结" class="headerlink" title="一些小结"></a>一些小结</h2><h4 id="1-路由跳转"><a href="#1-路由跳转" class="headerlink" title="1. 路由跳转"></a>1. 路由跳转</h4><ol>
+<li>注册路由<br>main.dart</li>
+</ol>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+  routes<span class="token punctuation">:</span><span class="token punctuation">{</span>
+    <span class="token string">'my_page'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">MyPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span></code></pre>
+<ol start="2">
+<li>点击跳转<br>xxx.dart</li>
+</ol>
+<pre class=" language-dart"><code class="language-dart">  <span class="token function">FlatButton</span><span class="token punctuation">(</span>
+    onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 可通过arguments传递参数</span>
+      Navigator<span class="token punctuation">.</span><span class="token function">pushNamed</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">'my_page'</span><span class="token punctuation">,</span> arguments<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'data'</span><span class="token punctuation">:</span> data<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span></code></pre>
+<h4 id="2-循环widget"><a href="#2-循环widget" class="headerlink" title="2. 循环widget"></a>2. 循环widget</h4><p>Row(children: strings.map((item) =&gt; Text(item)).toList());</p>
+<h4 id="3-宽高设置"><a href="#3-宽高设置" class="headerlink" title="3. 宽高设置"></a>3. 宽高设置</h4><p>前端开发中html标签是可以自行设定宽高,颜色,但在flutter中只有几个widget可以(刚开始接触有点不习惯)</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 可设置宽高及颜色</span>
+<span class="token function">Container</span><span class="token punctuation">(</span>
+  <span class="token comment" spellcheck="true">// 满屏</span>
+  width<span class="token punctuation">:</span> MediaQuery<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>size<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blue
+<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 可设置宽高</span>
+<span class="token function">SizedBox</span><span class="token punctuation">(</span>
+  width<span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> <span class="token number">200</span>
+<span class="token punctuation">)</span></code></pre>
+<ul>
+<li>如果要给按钮设置大小,便可通过在外包裹个Container来控制大小:</li>
+</ul>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">Container</span><span class="token punctuation">(</span>
+  width<span class="token punctuation">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token function">FlatButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+<ul>
+<li>也可以使用<code>ButtonTheme</code>来修改按钮大小:</li>
+</ul>
+<pre class=" language-dart"><code class="language-dart"><span class="token function">ButtonTheme</span><span class="token punctuation">(</span>
+  minWidth<span class="token punctuation">:</span> <span class="token number">65.0</span><span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> <span class="token number">24.0</span><span class="token punctuation">,</span>
+  child<span class="token punctuation">:</span> <span class="token function">OutlineButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+<ul>
+<li>图片可自行设置宽高</li>
+</ul>
+<h4 id="4-区分环境"><a href="#4-区分环境" class="headerlink" title="4. 区分环境"></a>4. 区分环境</h4><p>把启动文件按环境分为main_local,main_dev.dart,main.dart,根据需要启动不同文件,详见 <a href="https://yuanxuxu.com/2018/09/13/flutter-load-config-by-env/" target="_blank" rel="noopener">Flutter 实现根据环境加载不同配置</a></p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/b9e7c00075e1" target="_blank" rel="noopener">android studio设置运行环境</a>, 设置后可以很快切换环境<br><img src="/img/dujun/dev.png" alt></p>
+</li>
+<li><p>vscode 设置<code>launch.json</code>文件的<code>&quot;program&quot;: &quot;lib/main.dart&quot;</code>为不同的启动文件即可</p>
+</li>
+</ul>
+<blockquote>
+<p>不过带来的问题是涉及<code>main.dart</code>的修改都需要改三份文件</p>
+</blockquote>
+<h4 id="5-flutter封装的组件"><a href="#5-flutter封装的组件" class="headerlink" title="5. flutter封装的组件"></a>5. flutter封装的组件</h4><p>flutter封装了一些组件,可以让开发者专注于业务,如TabBar, DatePicker等</p>
+<h4 id="6-dio增加配置信息"><a href="#6-dio增加配置信息" class="headerlink" title="6. dio增加配置信息"></a>6. dio增加配置信息</h4><p>token,版本号,ip等信息需要由app传到服务端,不能每次请求都获取一遍这些信息,可以统一设置一次<br>dao_basis.dart</p>
+<pre class=" language-dart"><code class="language-dart">Dio dio <span class="token operator">=</span> <span class="token function">Dio</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">InterceptorsWrapper</span><span class="token punctuation">(</span>
+  <span class="token comment" spellcheck="true">// 请求时的处理</span>
+  onRequest<span class="token punctuation">:</span> <span class="token punctuation">(</span>RequestOptions options<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+    String _platform <span class="token operator">=</span> <span class="token string">'android'</span><span class="token punctuation">;</span>
+    String _version <span class="token operator">=</span> packageInfo<span class="token punctuation">.</span>version<span class="token punctuation">;</span>
+    options<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string">'platform'</span><span class="token punctuation">:</span> _platform<span class="token punctuation">,</span>
+      <span class="token string">'version'</span><span class="token punctuation">:</span> _version<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 相应时的处理</span>
+  onResponse<span class="token punctuation">:</span> <span class="token punctuation">(</span>Response options<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 对响应状态码如401的处理</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">401</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 发生错误时的处理</span>
+  onError<span class="token punctuation">:</span> <span class="token punctuation">(</span>DioError err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>user_dao.dart</p>
+<pre class=" language-dart"><code class="language-dart"><span class="token comment" spellcheck="true">// 其他请求引用上个文件即可</span>
+<span class="token keyword">import</span> <span class="token string">'dao_basis.dart'</span><span class="token punctuation">;</span>
+Response res <span class="token operator">=</span> <span class="token keyword">await</span> dio<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>'xxx<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="7-ios证书设置指南"><a href="#7-ios证书设置指南" class="headerlink" title="7. ios证书设置指南"></a>7. ios证书设置指南</h4><p><a href="https://docs.jiguang.cn/jpush/client/iOS/ios_cer_guide/" target="_blank" rel="noopener">极光推送文档</a>, 比腾讯信鸽的详细且新</p>
+<h2 id="奇怪的问题"><a href="#奇怪的问题" class="headerlink" title="奇怪的问题"></a>奇怪的问题</h2><ol>
+<li><p>连接真机失败<br><a href="https://github.com/flutter/flutter/issues/25112" target="_blank" rel="noopener">Error connecting to the service protocol: HttpException</a><br>刚开始切换wifi还好使,后来渐渐这招失败次数也多了;意外发现重新连接下手机就可以了,不过最近发现这招也有不行的时候了,虽然失败次数少。</p>
+</li>
+<li><p><code>Check failed: vm. Must be able to initialize the VM</code><br>忘了改了什么,用vscode运行和xcode运行都不行,用android studio试了下居然可以了,也是很奇怪</p>
+</li>
+<li><p>安卓真机运行不了<br>先运行安卓模拟器,再运行真机</p>
+</li>
+<li><p><code>MissingPluginException(No implementation found for method startWork on channel xxx)</code><br>新安装的包,有时需要到ios目录<code>pod install</code></p>
+</li>
+</ol>
+<h2 id="使用的第三方包"><a href="#使用的第三方包" class="headerlink" title="使用的第三方包"></a>使用的第三方包</h2><p>罗列下用到的第三方包(常用的如dio,flutter_swiper等就不列了),省的大家再去寻找啦</p>
+<h4 id="弹窗"><a href="#弹窗" class="headerlink" title="弹窗"></a>弹窗</h4><p><a href="https://pub.dev/packages/fluttertoast#-readme-tab-" target="_blank" rel="noopener">fluttertoast</a><br>使用很方便,不需要传<code>context</code>,引入后随意调用;<br>不过貌似取消不了,详见issue <a href="https://github.com/PonnamKarthik/FlutterToast/issues/116" target="_blank" rel="noopener">Fluttertoast.cancel() not work</a></p>
+<h4 id="loading"><a href="#loading" class="headerlink" title="loading"></a>loading</h4><p>进行网络请求等操作时的loading状态<br><a href="https://pub.dev/packages/modal_progress_hud" target="_blank" rel="noopener">modal_progress_hud</a></p>
+<h4 id="网络图片处理"><a href="#网络图片处理" class="headerlink" title="网络图片处理"></a>网络图片处理</h4><p>缓存网络图片,且带有loading的placeholder<br><a href="https://pub.dev/packages/cached_network_image" target="_blank" rel="noopener">cached_network_image</a></p>
+<h4 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h4><p>下拉刷新及上拉加载<br><a href="https://pub.dev/packages/flutter_easyrefresh" target="_blank" rel="noopener">flutter_easyrefresh</a></p>
+<p><strong>app名为小鱼干,主要功能是提供上门喂猫服务,欢迎下载使用</strong><br><img src="/img/dujun/misym-9zeqw.gif" alt></p>
+
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+
+
+
+
+    <!-- 使用 DISQUS -->
+    <div id="disqus-comment">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://jiandandkl.github.io/2020/01/03/两个半月的业余时间用Flutter做了个app-技术篇/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jiandandkl.github.io/2020/01/03/两个半月的业余时间用Flutter做了个app-技术篇/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//jiandandkl.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+    </div>
+    <style>
+        #disqus-comment{
+            background-color: #eee;
+            padding: 2pc;
+        }
+    </style>
+
+
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/01/05/两个半月的业余时间用Flutter做了个app-项目篇暨年终总结/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/08/25/《高效能人士的七个习惯》读书笔记/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+  <!-- Top bar -->
+  <div class="top-bar"></div>
+
+  <!-- Sidebar toggle button -->
+  <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="material-icons">clear_all</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple"></span>
+    </span>
+  </button>
+
+  <!-- Sidebar Avatar -->
+  <div class="sidebar-image">
+    <img src="/img/avatar.png" alt="jiandandkl's avatar">
+  </div>
+
+  <!-- Sidebar Email -->
+  <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+    dujunnr@hotmail.com
+    <b class="caret"></b>
+  </a>
+</div>
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:dujunnr@hotmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="https://github.com/jiandandkl" target="_blank" title="GitHub">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">home</i>
+                        
+                        GitHub
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/" target="_self">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2025/07/">七月 2025<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/12/">十二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/04/">四月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/02/">二月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/05/">五月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/10/">十月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/05/">五月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+  
+  <!-- Paradox Footer Left Section -->
+  <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/u/1676955787" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-weibo.svg);">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/jiandandkl" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn" style="background-image: url(/img/footer/footer_ico-github.svg);">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+  <!--Copyright-->
+  <div id="copyright">
+    Copyright&nbsp;©&nbsp;
+    <script type="text/javascript">
+      var fd = new Date();
+      document.write(fd.getFullYear());
+    </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    &nbsp;
+    dujun blog
+  </div>
+
+  <!-- Paradox Footer Right Section -->
+
+  <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+  <div class="mdl-mini-footer--right-section">
+    <div>
+      <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+      <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank"
+          class="footer-develop-a">Material</a></div>
+    </div>
+  </div>
+  
+</footer>
+
+                    <!-- Import File -->
+
+    <script src="/js/lazyload.min.js"></script>
+    <script src="/js/js.min.js"></script>
+
+
+
+    <script src="/js/nprogress.js"></script>
+
+
+<script type="text/javascript">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用 DISQUS js 代码 -->
+    <script id="dsq-count-scr" src="//jiandandkl.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- Window Load-->
+<script>
+    $(window).load(function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script>
+    <!-- Offer LazyLoad -->
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    <!-- Start Queue -->
+    $(document).ready(function(){
+        setTimeout(function(){
+            setInterval(function(){
+                queue.execNext();
+            },200);
+        },3000);
+    });
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
